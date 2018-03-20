@@ -18,12 +18,4 @@ public class TestObjectInner {
         this.foo = foo;
         this.bar = bar;
     }
-
-    @Override
-    public String toString() {
-        return "TestObjectInner{" +
-                "foo=" + foo +
-                ", bar='" + bar + '\'' +
-                '}';
-    }
 }

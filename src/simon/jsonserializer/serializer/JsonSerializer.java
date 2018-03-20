@@ -25,16 +25,17 @@ public class JsonSerializer {
             JSONObject jsonObject = new JSONObject();
 
             for (Field field : objectClass.getDeclaredFields()) {
-                if (field.isAnnotationPresent(JsonField.class)) {
+                String jsonElementKey = getJsonElementKey(field);
+                if (jsonElementKey != null) {
+                    TypeConverter typeConverter = getTypeConverter(field);
                     field.setAccessible(true);
 
-                    String jsonElementKey = getPropertyKey(field);
-                    Object jsonElementData;
-                    if (isPrimitive(field)) {
-                        jsonElementData = field.get(toBeSerialized);
+                    Object jsonElementData = field.get(toBeSerialized);
+                    if ((jsonElementData != null) && (typeConverter != null)) {
+                        jsonElementData = typeConverter.convert(jsonElementData);
                     }
-                    else {
-                        jsonElementData = serializeHelper(field.get(toBeSerialized));
+                    if ((jsonElementData != null) && !isElementDataPrimitive(jsonElementData.getClass())) {
+                        jsonElementData = serializeHelper(jsonElementData);
                     }
 
                     jsonObject.put(jsonElementKey, jsonElementData);
@@ -48,23 +49,43 @@ public class JsonSerializer {
         }
     }
 
-    private static boolean isPrimitive(Field field) {
-        return (field.getType().isPrimitive() ||
-                field.getType().isAssignableFrom(String.class) ||
-                field.getType().isAssignableFrom(Boolean.class) ||
-                field.getType().isAssignableFrom(Character.class) ||
-                Number.class.isAssignableFrom(field.getType())
+    private static boolean isElementDataPrimitive(Class<?> fieldDataClass) {
+        return (fieldDataClass.isPrimitive() ||
+                fieldDataClass.isAssignableFrom(String.class) ||
+                fieldDataClass.isAssignableFrom(Boolean.class) ||
+                fieldDataClass.isAssignableFrom(Character.class) ||
+                Number.class.isAssignableFrom(fieldDataClass)
         );
     }
 
-    private static String getPropertyKey(Field field) {
-        String jsonPropertyKey = field.getAnnotation(JsonField.class).name();
+    private static String getJsonElementKey(Field field) {
+        JsonField jsonPropertyKeyAnnotation = field.getAnnotation(JsonField.class);
 
-        if (jsonPropertyKey.isEmpty()) {
-            return field.getName();
+        if (jsonPropertyKeyAnnotation == null) {
+            return null;
         }
 
+        String jsonPropertyKey = jsonPropertyKeyAnnotation.name();
+        if (jsonPropertyKey.isEmpty()) {
+            jsonPropertyKey = field.getName();
+        }
         return jsonPropertyKey;
+    }
+
+    private static TypeConverter getTypeConverter(Field field) {
+        JsonFieldConverter jsonTypeConverterAnnotation = field.getAnnotation(JsonFieldConverter.class);
+
+        if (jsonTypeConverterAnnotation == null) {
+            return null;
+        }
+
+        try {
+            return jsonTypeConverterAnnotation.converterClass().newInstance();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }
