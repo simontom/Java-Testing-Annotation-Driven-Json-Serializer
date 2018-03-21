@@ -4,17 +4,21 @@ import simon.jsonserializer.serializer.IntegerToStringTypeConverter;
 import simon.jsonserializer.serializer.JsonField;
 import simon.jsonserializer.serializer.JsonFieldConverter;
 
-public class TestObject {
+public class TestClass {
+    //region Not Annotated for serialization
     private final String foo;
+    //endregion Not Annotated for serialization
 
+    //region String
     @JsonField
     private final String bar;
     @JsonField (name = "test_name")
     private final String baz;
-    @JsonField (name = "test_number")
-    private int number = 42;
+    //endregion String
 
     //region Number
+    @JsonField (name = "test_number")
+    private int number = 42;
     @JsonField(name = "__converted__")
     @JsonFieldConverter (converterClass = IntegerToStringTypeConverter.class)
     private Integer integerAsObject = 123;
@@ -28,17 +32,17 @@ public class TestObject {
 
     //region Inner Object
     @JsonField (name = "inner")
-    private TestObjectInner testObjectInner;
+    private TestInner testInner;
     @JsonField (name = "it_is_not_null")
-    TestObjectInner testObjectInnerNotNull = new TestObjectInner(1, "2");
+    TestInner testInnerNotNull = new TestInner(1, "2");
     @JsonField (name = "it_is_null")
-    TestObjectInner testObjectInnerNull;
+    TestInner testInnerNull;
     //endregion Inner Object
 
-    public TestObject(String foo, String bar, String baz, TestObjectInner testObjectInner) {
+    public TestClass(String foo, String bar, String baz, TestInner testInner) {
         this.foo = foo;
         this.bar = bar;
         this.baz = baz;
-        this.testObjectInner = testObjectInner;
+        this.testInner = testInner;
     }
 }
