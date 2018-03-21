@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3955b738-6980-4dbb-b1cc-210de92e78c7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/Base.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/Derived.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/DerivedDoubled.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/FieldInformation.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializableFieldInformationExtractor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/tests/JsonSerializationTest.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/libs.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/AnnotationDrivenJsonSerializer.iml" afterPath="$PROJECT_DIR$/AnnotationDrivenJsonSerializer.iml" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/Main.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/TestObject.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/TestClass.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/TestObjectInner.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/TestInner.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/IntegerToStringTypeConverter.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/IntegerToStringTypeConverter.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/TypeConverter.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/TypeConverter.java" />
-    </list>
+    <list default="true" id="3955b738-6980-4dbb-b1cc-210de92e78c7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,7 +42,7 @@
       <file leaf-file-name="JsonSerializer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="160">
               <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -379,7 +363,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1052" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -389,9 +372,9 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2015625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19989339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -915,7 +898,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
+        <state relative-caret-position="160">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
