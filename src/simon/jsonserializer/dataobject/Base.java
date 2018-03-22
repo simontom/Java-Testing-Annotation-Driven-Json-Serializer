@@ -2,11 +2,9 @@ package simon.jsonserializer.dataobject;
 
 import simon.jsonserializer.serializer.IntegerToStringTypeConverter;
 import simon.jsonserializer.serializer.JsonField;
-import simon.jsonserializer.serializer.JsonFieldConverter;
 
 public class Base {
-    @JsonField (name = "__converted_int_to_string__")
-    @JsonFieldConverter (converterClass = IntegerToStringTypeConverter.class)
+    @JsonField (name = "__converted_int_to_string__", typeConverter = IntegerToStringTypeConverter.class)
     private final Integer integerAsObject;
 
     @JsonField (name = "test_number")

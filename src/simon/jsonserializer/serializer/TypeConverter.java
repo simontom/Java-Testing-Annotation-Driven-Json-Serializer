@@ -1,11 +1,20 @@
 package simon.jsonserializer.serializer;
 
 public interface TypeConverter<OUT, IN> {
-
-    // Used during serialization
     OUT convertSerialization(IN object);
-
-    // Used during deserialization
     IN convertDeserialization(OUT object);
+
+
+    class DEFAULT implements TypeConverter<Object, Object> {
+        @Override
+        public Object convertSerialization(Object object) {
+            return object;
+        }
+
+        @Override
+        public Object convertDeserialization(Object object) {
+            return object;
+        }
+    }
 
 }

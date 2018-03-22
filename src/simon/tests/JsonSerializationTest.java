@@ -12,7 +12,7 @@ import simon.jsonserializer.dataobject.Derived;
 import simon.jsonserializer.dataobject.DerivedDoubled;
 import simon.jsonserializer.dataobject.TestClass;
 import simon.jsonserializer.dataobject.TestInner;
-import simon.jsonserializer.serializer.JsonSerializableFieldInformationExtractor;
+import simon.jsonserializer.serializer.JsonFieldInformationExtractor;
 import simon.jsonserializer.serializer.JsonSerializationException;
 import simon.jsonserializer.serializer.JsonSerializer;
 
@@ -23,7 +23,7 @@ public class JsonSerializationTest {
 
     @Before
     public void setUp() {
-        JsonSerializableFieldInformationExtractor extractor = new JsonSerializableFieldInformationExtractor();
+        JsonFieldInformationExtractor extractor = new JsonFieldInformationExtractor();
         jsonSerializer = new JsonSerializer(extractor);
     }
 

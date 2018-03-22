@@ -2,7 +2,6 @@ package simon.jsonserializer.dataobject;
 
 import simon.jsonserializer.serializer.IntegerToStringTypeConverter;
 import simon.jsonserializer.serializer.JsonField;
-import simon.jsonserializer.serializer.JsonFieldConverter;
 
 public class TestClass {
     //region Not Annotated for serialization
@@ -19,8 +18,7 @@ public class TestClass {
     //region Number
     @JsonField (name = "test_number")
     private int number = 42;
-    @JsonField(name = "__converted__")
-    @JsonFieldConverter (converterClass = IntegerToStringTypeConverter.class)
+    @JsonField (name = "__converted__", typeConverter = IntegerToStringTypeConverter.class)
     private Integer integerAsObject = 123;
     @JsonField
     private Long longAsObject = 1234L;
