@@ -67,9 +67,8 @@ public class JsonSerializer {
     private JSONArray serializeArray(Object fieldData) throws JsonSerializationException {
         JSONArray jsonArray = new JSONArray();
 
-        int length = Array.getLength(fieldData);
-        for (int i = 0; i < length; i++) {
-            Object arrayItem = Array.get(fieldData, i);
+        Object arrayItems[] = (Object[]) fieldData;
+        for (Object arrayItem : arrayItems) {
             if (!typeChecker.isElementDataPrimitive(arrayItem)) {
                 arrayItem = serializeHelper(arrayItem);
             }
