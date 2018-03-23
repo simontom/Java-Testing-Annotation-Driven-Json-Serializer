@@ -1,4 +1,6 @@
-package simon.jsonserializer.serializer;
+package simon.jsonserializer;
+
+import simon.jsonserializer.serializer.TypeConverter;
 
 public class IntegerToStringTypeConverter implements TypeConverter<String, Integer> {
     @Override

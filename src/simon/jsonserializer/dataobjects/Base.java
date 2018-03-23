@@ -1,6 +1,6 @@
-package simon.jsonserializer.dataobject;
+package simon.jsonserializer.dataobjects;
 
-import simon.jsonserializer.serializer.IntegerToStringTypeConverter;
+import simon.jsonserializer.IntegerToStringTypeConverter;
 import simon.jsonserializer.serializer.JsonField;
 
 public class Base {

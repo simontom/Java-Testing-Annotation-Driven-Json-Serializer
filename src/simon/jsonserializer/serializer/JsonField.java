@@ -15,5 +15,5 @@ public @interface JsonField {
 
     boolean optional() default true;
 
-    Class<? extends TypeConverter> typeConverter() default TypeConverter.DEFAULT.class;
+    Class<? extends TypeConverter> typeConverter() default TypeConverter.IDENTITY.class;
 }

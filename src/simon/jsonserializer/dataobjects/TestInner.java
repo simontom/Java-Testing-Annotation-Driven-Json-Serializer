@@ -1,4 +1,4 @@
-package simon.jsonserializer.dataobject;
+package simon.jsonserializer.dataobjects;
 
 import simon.jsonserializer.serializer.JsonField;
 

@@ -7,20 +7,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import simon.jsonserializer.serializer.exceptions.FieldInformationExtractionException;
+
 public class JsonFieldInformationExtractor {
 
-    public List<FieldInformation> getSerializableFields(Object object) throws IllegalAccessException {
+    public List<FieldInformation> getSerializableFields(Object object) throws FieldInformationExtractionException {
         List<FieldInformation> fieldsInformation = new ArrayList<>();
 
         if (object == null) {
             return fieldsInformation;
         }
 
-        for (Field field : getFieldsIncludingSuperclass(object)) {
-            FieldInformation fieldInformation = extractFieldInformation(field, object);
-            if (fieldInformation != null) {
-                fieldsInformation.add(fieldInformation);
+        try {
+            for (Field field : getFieldsIncludingSuperclass(object)) {
+                FieldInformation fieldInformation = extractFieldInformation(field, object);
+                if (fieldInformation != null) {
+                    fieldsInformation.add(fieldInformation);
+                }
             }
+        }
+        catch (Exception e) {
+            String message = "Unable to extract all field information for: " + object;
+            throw new FieldInformationExtractionException(message, e);
         }
 
         return fieldsInformation;
@@ -38,10 +46,12 @@ public class JsonFieldInformationExtractor {
         return allFields;
     }
 
-    private FieldInformation extractFieldInformation(@NotNull Field field, Object object) throws IllegalAccessException {
+    private FieldInformation extractFieldInformation(@NotNull Field field, Object object)
+            throws IllegalAccessException, InstantiationException {
+
         JsonField jsonFieldAnnotation = field.getAnnotation(JsonField.class);
 
-        if (jsonFieldAnnotation == null) { // Not Serializable
+        if (jsonFieldAnnotation == null) { // Not going to be serialized
             return null;
         }
 
@@ -60,19 +70,9 @@ public class JsonFieldInformationExtractor {
 
         // Created TypeConverter if possible
         Class<? extends TypeConverter> typeConverterClass = jsonFieldAnnotation.typeConverter();
-        TypeConverter typeConverter = tryCreateTypeConverterInstance(typeConverterClass);
+        TypeConverter typeConverter = typeConverterClass.newInstance();
 
         return new FieldInformation(informationKey, informationData, isOptional, typeConverter);
-    }
-
-    private TypeConverter tryCreateTypeConverterInstance(@NotNull Class<? extends TypeConverter> typeConverter) {
-        try {
-            return typeConverter.newInstance();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
 }

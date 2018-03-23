@@ -3,14 +3,15 @@ package simon.jsonserializer;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import simon.jsonserializer.dataobject.Base;
-import simon.jsonserializer.dataobject.Derived;
-import simon.jsonserializer.dataobject.DerivedDoubled;
-import simon.jsonserializer.dataobject.TestClass;
-import simon.jsonserializer.dataobject.TestInner;
+import simon.jsonserializer.dataobjects.Base;
+import simon.jsonserializer.dataobjects.Derived;
+import simon.jsonserializer.dataobjects.DerivedDoubled;
+import simon.jsonserializer.dataobjects.TestClass;
+import simon.jsonserializer.dataobjects.TestInner;
 import simon.jsonserializer.serializer.JsonFieldInformationExtractor;
-import simon.jsonserializer.serializer.JsonSerializationException;
+import simon.jsonserializer.serializer.exceptions.JsonSerializationException;
 import simon.jsonserializer.serializer.JsonSerializer;
+import simon.jsonserializer.serializer.TypeChecker;
 
 public class Main {
 
@@ -26,7 +27,8 @@ public class Main {
 
         //region Serializer
         JsonFieldInformationExtractor fieldInformationExtractor = new JsonFieldInformationExtractor();
-        JsonSerializer jsonSerializer = new JsonSerializer(fieldInformationExtractor);
+        TypeChecker typeChecker = new TypeChecker();
+        JsonSerializer jsonSerializer = new JsonSerializer(fieldInformationExtractor, typeChecker);
         JSONObject jsonObject;
         //endregion Serializer
 

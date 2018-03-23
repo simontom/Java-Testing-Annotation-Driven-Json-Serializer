@@ -1,4 +1,4 @@
-package simon.jsonserializer.serializer;
+package simon.jsonserializer.serializer.exceptions;
 
 public class JsonSerializationException extends Exception {
     public JsonSerializationException(String message, Exception e) {

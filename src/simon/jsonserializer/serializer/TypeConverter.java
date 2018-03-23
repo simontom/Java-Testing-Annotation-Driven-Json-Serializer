@@ -5,7 +5,7 @@ public interface TypeConverter<OUT, IN> {
     IN convertDeserialization(OUT object);
 
 
-    class DEFAULT implements TypeConverter<Object, Object> {
+    class IDENTITY implements TypeConverter<Object, Object> {
         @Override
         public Object convertSerialization(Object object) {
             return object;
