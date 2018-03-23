@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3955b738-6980-4dbb-b1cc-210de92e78c7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestArray.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestCollection.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestMap.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/TypeChecker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/exceptions/FieldInformationExtractionException.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/Main.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/Base.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/Base.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/Derived.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/Derived.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/DerivedDoubled.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/DerivedDoubled.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/TestClass.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestClass.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/TestInner.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestInner.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/IntegerToStringTypeConverter.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/IntegerToStringTypeConverter.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonField.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonField.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonFieldInformationExtractor.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonFieldInformationExtractor.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializationException.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/exceptions/JsonSerializationException.java" />
       <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/TypeConverter.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/serializer/TypeConverter.java" />
-      <change beforePath="$PROJECT_DIR$/src/simon/tests/JsonSerializationTest.java" afterPath="$PROJECT_DIR$/src/simon/tests/JsonSerializationTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,10 +39,16 @@
       <file leaf-file-name="JsonSerializer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
+            <state relative-caret-position="357">
+              <caret line="17" column="67" lean-forward="false" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#JsonSerializer#0;class#JsonSerializer#0" expanded="false" />
+                <element signature="method#serialize#0;class#JsonSerializer#0" expanded="false" />
+                <element signature="method#serializeHelper#0;class#JsonSerializer#0" expanded="false" />
+                <element signature="method#serializeArray#0;class#JsonSerializer#0" expanded="false" />
+                <element signature="method#serializeCollection#0;class#JsonSerializer#0" expanded="false" />
+                <element signature="method#serializeMap#0;class#JsonSerializer#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -136,10 +124,10 @@
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/TestCollection.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobject/TestMap.java" />
         <option value="$PROJECT_DIR$/src/simon/tests/JsonSerializationTest.java" />
-        <option value="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/IntegerToStringTypeConverter.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/serializer/exceptions/FieldInformationExtractionException.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/serializer/exceptions/JsonSerializationException.java" />
+        <option value="$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java" />
       </list>
     </option>
   </component>
@@ -460,6 +448,12 @@
           <caret line="33" column="79" lean-forward="true" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#JsonSerializer#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serialize#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeHelper#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeArray#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeCollection#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeMap#0;class#JsonSerializer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -525,6 +519,12 @@
           <caret line="51" column="16" lean-forward="false" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#JsonSerializer#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serialize#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeHelper#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeArray#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeCollection#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeMap#0;class#JsonSerializer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -868,10 +868,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/serializer/JsonSerializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
+        <state relative-caret-position="357">
+          <caret line="17" column="67" lean-forward="false" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#JsonSerializer#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serialize#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeHelper#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeArray#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeCollection#0;class#JsonSerializer#0" expanded="false" />
+            <element signature="method#serializeMap#0;class#JsonSerializer#0" expanded="false" />
           </folding>
         </state>
       </provider>

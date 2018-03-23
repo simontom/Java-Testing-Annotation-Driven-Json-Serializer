@@ -14,6 +14,8 @@ import simon.jsonserializer.serializer.exceptions.JsonSerializationException;
 
 import static java.util.Objects.requireNonNull;
 
+## Create JsonDeserializer
+## Create Facade for easy calling Serialization and Deserialization
 public class JsonSerializer {
 
     private final JsonFieldInformationExtractor fieldInformationExtractor;
