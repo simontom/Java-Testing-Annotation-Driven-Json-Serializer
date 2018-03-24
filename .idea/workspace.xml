@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3955b738-6980-4dbb-b1cc-210de92e78c7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/parser/JsonDeserializer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/parser/ParserFacade.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/simon/tests/deserialization/JsonDeserializationBasicTest.kt" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/parser/JsonSerializer.java" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/parser/JsonSerializer.java" />
-    </list>
+    <list default="true" id="3955b738-6980-4dbb-b1cc-210de92e78c7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
