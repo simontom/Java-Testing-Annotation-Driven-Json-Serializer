@@ -16,8 +16,6 @@ import simon.jsonserializer.parser.helpers.TypeChecker;
 
 import static java.util.Objects.requireNonNull;
 
-//## Create JsonDeserializer
-//## Create Facade for easy calling Serialization and Deserialization
 public class JsonSerializer {
 
     private final FieldInformationExtractor fieldInformationExtractor;
