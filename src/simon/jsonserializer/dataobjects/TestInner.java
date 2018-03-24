@@ -1,12 +1,12 @@
 package simon.jsonserializer.dataobjects;
 
-import simon.jsonserializer.serializer.JsonField;
+import simon.jsonserializer.parser.JsonField;
 
 public class TestInner {
-    @JsonField(name = "inner_bar")
+    @JsonField (name = "inner_bar")
     private String bar;
 
-    @JsonField(name = "inner_foo")
+    @JsonField (name = "inner_foo")
     private final long foo;
 
     @JsonField

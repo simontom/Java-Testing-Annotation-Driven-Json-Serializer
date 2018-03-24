@@ -1,6 +1,7 @@
-package simon.jsonserializer.serializer;
+package simon.jsonserializer.parser;
 
-public interface TypeConverter<OUT, IN> {
+public interface
+TypeConverter<OUT, IN> {
     OUT convertSerialization(IN object);
     IN convertDeserialization(OUT object);
 

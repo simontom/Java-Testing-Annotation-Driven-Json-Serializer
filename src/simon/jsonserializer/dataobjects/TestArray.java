@@ -1,16 +1,16 @@
 package simon.jsonserializer.dataobjects;
 
-import simon.jsonserializer.serializer.JsonField;
+import simon.jsonserializer.parser.JsonField;
 
 public class TestArray {
     @JsonField
-    private final Integer[] integers;
+    private final Integer[] arrayIntegers;
 
     @JsonField
-    private Base[] bases;
+    private Base[] arrayBases;
 
-    public TestArray(Integer[] integers, Base[] bases) {
-        this.integers = integers;
-        this.bases = bases;
+    public TestArray(Integer[] arrayIntegers, Base[] arrayBases) {
+        this.arrayIntegers = arrayIntegers;
+        this.arrayBases = arrayBases;
     }
 }

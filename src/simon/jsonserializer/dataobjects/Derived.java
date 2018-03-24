@@ -1,6 +1,6 @@
 package simon.jsonserializer.dataobjects;
 
-import simon.jsonserializer.serializer.JsonField;
+import simon.jsonserializer.parser.JsonField;
 
 public class Derived extends Base {
     @JsonField (name = "derived_bar")

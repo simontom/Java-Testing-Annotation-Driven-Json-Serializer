@@ -1,4 +1,4 @@
-package simon.jsonserializer.serializer.exceptions;
+package simon.jsonserializer.parser.exceptions;
 
 public class FieldInformationExtractionException extends Exception {
     public FieldInformationExtractionException(String message, Throwable cause) {

@@ -1,6 +1,6 @@
 package simon.jsonserializer;
 
-import simon.jsonserializer.serializer.TypeConverter;
+import simon.jsonserializer.parser.TypeConverter;
 
 public class IntegerToStringTypeConverter implements TypeConverter<String, Integer> {
     @Override
@@ -12,7 +12,8 @@ public class IntegerToStringTypeConverter implements TypeConverter<String, Integ
     public Integer convertDeserialization(String object) {
         try {
             return Integer.parseInt(object);
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e) {
             return 0;
         }
     }
