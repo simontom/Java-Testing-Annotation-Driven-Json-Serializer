@@ -70,7 +70,7 @@ public class FieldInformationExtractor {
         Class<? extends TypeConverter> typeConverterClass = jsonFieldAnnotation.typeConverter();
         TypeConverter typeConverter = typeConverterClass.newInstance();
 
-        return new FieldInformation(informationKey, informationData, isOptional, typeConverter);
+        return new FieldInformation(field, informationKey, informationData, isOptional, typeConverter);
     }
 
 }

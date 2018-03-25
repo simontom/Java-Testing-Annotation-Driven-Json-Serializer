@@ -1,14 +1,18 @@
 package simon.jsonserializer.parser.helpers;
 
+import java.lang.reflect.Field;
+
 import simon.jsonserializer.parser.TypeConverter;
 
 public class FieldInformation {
-    public String name;
+    private final Field field;
+    public final String name;
     public Object data;
-    public boolean isOptional = true;
-    public TypeConverter typeConverter;
+    public final boolean isOptional;
+    public final TypeConverter typeConverter;
 
-    public FieldInformation(String name, Object data, boolean isOptional, TypeConverter typeConverter) {
+    public FieldInformation(Field field, String name, Object data, boolean isOptional, TypeConverter typeConverter) {
+        this.field = field;
         this.name = name;
         this.data = data;
         this.isOptional = isOptional;

@@ -18,11 +18,11 @@ import static java.util.Objects.requireNonNull;
 
 public class JsonSerializer {
 
-    private final FieldInformationExtractor fieldInformationExtractor;
+    private final FieldInformationExtractor extractor;
     private final TypeChecker typeChecker;
 
     public JsonSerializer(FieldInformationExtractor fieldInformationExtractor, TypeChecker typeChecker) {
-        this.fieldInformationExtractor = fieldInformationExtractor;
+        this.extractor = fieldInformationExtractor;
         this.typeChecker = typeChecker;
     }
 
@@ -38,7 +38,7 @@ public class JsonSerializer {
         try {
             JSONObject jsonObject = new JSONObject();
 
-            for (FieldInformation fieldInformation : fieldInformationExtractor.extractFieldInformations(toBeJsonified)) {
+            for (FieldInformation fieldInformation : extractor.extractFieldInformations(toBeJsonified)) {
                 if (fieldInformation.data == null) {
                     if (fieldInformation.isOptional) {
                         continue;
