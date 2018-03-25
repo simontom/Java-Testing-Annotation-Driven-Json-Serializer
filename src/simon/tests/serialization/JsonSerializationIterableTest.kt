@@ -7,10 +7,11 @@ import simon.jsonserializer.dataobjects.Base
 import simon.jsonserializer.dataobjects.TestArray
 import simon.jsonserializer.dataobjects.TestCollection
 import simon.jsonserializer.dataobjects.TestMap
-import simon.jsonserializer.parser.exceptions.JsonSerializationException
+import simon.jsonserializer.parser.exceptions.JsonParserException
+import simon.tests.JsonParserTestBase
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class JsonSerializationIterableTest : JsonSerializationTestBase() {
+class JsonSerializationIterableTest : JsonParserTestBase() {
 
     @Test
     fun a_serialize_ClassWithArray() {
@@ -39,14 +40,14 @@ class JsonSerializationIterableTest : JsonSerializationTestBase() {
         serializeAndPrint("Class With Map", testMap)
     }
 
-    @Test(expected = JsonSerializationException::class)
+    @Test(expected = JsonParserException::class)
 //    @Test
     fun d_serialize_ClassWithMapThrowsException() {
         val mapIntegers = hashMapOf("1" to 1, "2" to 2, "3" to 3)
         val mapBases = null
         val testMap = TestMap(mapIntegers, mapBases)
 
-        serializeAndPrint("Class With Map - Prints no data\nJsonSerializationException caught", testMap)
+        serializeAndPrint("Class With Map - Prints no data\nJsonParserException caught", testMap)
     }
 
 }

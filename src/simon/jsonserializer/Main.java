@@ -9,13 +9,13 @@ import simon.jsonserializer.dataobjects.DerivedDoubled;
 import simon.jsonserializer.dataobjects.TestClass;
 import simon.jsonserializer.dataobjects.TestInner;
 import simon.jsonserializer.parser.JsonSerializer;
-import simon.jsonserializer.parser.exceptions.JsonSerializationException;
+import simon.jsonserializer.parser.exceptions.JsonParserException;
 import simon.jsonserializer.parser.helpers.FieldInformationExtractor;
 import simon.jsonserializer.parser.helpers.TypeChecker;
 
 public class Main {
 
-    public static void main(String[] args) throws JsonSerializationException, JSONException {
+    public static void main(String[] args) throws JsonParserException, JSONException {
         //region TestClass Data
         TestInner inner = new TestInner(1234, "inner bar data");
         TestClass withInner = new TestClass("foo data", "bar data", "baz data", inner);

@@ -13,12 +13,8 @@ import simon.jsonserializer.parser.exceptions.FieldInformationExtractionExceptio
 
 public class FieldInformationExtractor {
 
-    public List<FieldInformation> getSerializableFields(Object object) throws FieldInformationExtractionException {
+    public List<FieldInformation> extractFieldInformations(@NotNull Object object) throws FieldInformationExtractionException {
         List<FieldInformation> fieldsInformation = new ArrayList<>();
-
-        if (object == null) {
-            return fieldsInformation;
-        }
 
         try {
             for (Field field : getFieldsIncludingSuperclass(object)) {

@@ -1,6 +1,5 @@
 package simon.tests.serialization
 
-import org.json.JSONException
 import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runners.MethodSorters
@@ -8,10 +7,11 @@ import org.junit.runners.MethodSorters
 import simon.jsonserializer.dataobjects.Base
 import simon.jsonserializer.dataobjects.TestClass
 import simon.jsonserializer.dataobjects.TestInner
-import simon.jsonserializer.parser.exceptions.JsonSerializationException
+import simon.jsonserializer.parser.exceptions.JsonParserException
+import simon.tests.JsonParserTestBase
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class JsonSerializationBasicTest : JsonSerializationTestBase() {
+class JsonSerializationBasicTest : JsonParserTestBase() {
 
     @Test
     fun a_serialize_BaseClass() {
@@ -20,11 +20,11 @@ class JsonSerializationBasicTest : JsonSerializationTestBase() {
         serializeAndPrint("Base", base)
     }
 
-    @Test(expected = JsonSerializationException::class)
+    @Test(expected = JsonParserException::class)
     fun b_serialize_BaseClassThrowsException() {
         val base = Base(null, randomInt)
 
-        serializeAndPrint("Base - Prints no data\nJsonSerializationException caught", base)
+        serializeAndPrint("Base - Prints no data\nJsonParserException caught", base)
     }
 
     @Test

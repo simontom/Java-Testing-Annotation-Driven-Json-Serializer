@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import java.util.Collection;
 import java.util.Map;
 
-import simon.jsonserializer.parser.exceptions.JsonSerializationException;
+import simon.jsonserializer.parser.exceptions.JsonParserException;
 import simon.jsonserializer.parser.helpers.FieldInformation;
 import simon.jsonserializer.parser.helpers.FieldInformationExtractor;
 import simon.jsonserializer.parser.helpers.TypeChecker;
@@ -26,19 +26,19 @@ public class JsonSerializer {
         this.typeChecker = typeChecker;
     }
 
-    public JSONObject serialize(@NotNull Object toBeJsonified) throws JsonSerializationException {
+    public JSONObject serialize(@NotNull Object toBeJsonified) throws JsonParserException {
         requireNonNull(toBeJsonified);
         return serializeHelper(toBeJsonified);
     }
 
-    private JSONObject serializeHelper(Object toBeJsonified) throws JsonSerializationException {
+    private JSONObject serializeHelper(Object toBeJsonified) throws JsonParserException {
         if (toBeJsonified == null) {
             return null;
         }
         try {
             JSONObject jsonObject = new JSONObject();
 
-            for (FieldInformation fieldInformation : fieldInformationExtractor.getSerializableFields(toBeJsonified)) {
+            for (FieldInformation fieldInformation : fieldInformationExtractor.extractFieldInformations(toBeJsonified)) {
                 if (fieldInformation.data == null) {
                     if (fieldInformation.isOptional) {
                         continue;
@@ -54,12 +54,12 @@ public class JsonSerializer {
             return jsonObject;
         }
         catch (Exception e) {
-            throw new JsonSerializationException(e.getMessage(), e);
+            throw new JsonParserException("Unable to Serialize object", e);
         }
     }
 
     private void processFieldInformation(FieldInformation fieldInformation)
-            throws JsonSerializationException, JSONException {
+            throws JsonParserException, JSONException {
 
         fieldInformation.data = fieldInformation.typeConverter.convertSerialization(fieldInformation.data);
 
@@ -77,7 +77,7 @@ public class JsonSerializer {
         }
     }
 
-    private JSONArray serializeArray(Object fieldData) throws JsonSerializationException {
+    private JSONArray serializeArray(Object fieldData) throws JsonParserException {
         JSONArray jsonArray = new JSONArray();
 
         Object arrayItems[] = (Object[]) fieldData;
@@ -91,7 +91,7 @@ public class JsonSerializer {
         return jsonArray;
     }
 
-    private JSONArray serializeCollection(Object fieldData) throws JsonSerializationException {
+    private JSONArray serializeCollection(Object fieldData) throws JsonParserException {
         JSONArray jsonArray = new JSONArray();
 
         for (Object collectionItem : ((Collection<?>) fieldData)) {
@@ -104,7 +104,7 @@ public class JsonSerializer {
         return jsonArray;
     }
 
-    private JSONObject serializeMap(Object fieldData) throws JSONException, JsonSerializationException {
+    private JSONObject serializeMap(Object fieldData) throws JSONException, JsonParserException {
         JSONObject jsonObject = new JSONObject();
 
         for (Map.Entry<String, ?> mapItem : ((Map<String, ?>) fieldData).entrySet()) {

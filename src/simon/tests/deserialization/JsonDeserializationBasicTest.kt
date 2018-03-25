@@ -1,13 +1,14 @@
 package simon.tests.deserialization
 
-import org.json.JSONArray
 import org.json.JSONObject
 import org.junit.FixMethodOrder
 import org.junit.runners.MethodSorters
+import simon.jsonserializer.dataobjects.Base
+import simon.tests.JsonParserTestBase
 import kotlin.test.Test
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class JsonDeserializationBasicTest() {
+class JsonDeserializationBasicTest() : JsonParserTestBase() {
 
     @Test
     fun test() {
@@ -23,6 +24,13 @@ class JsonDeserializationBasicTest() {
         val data4_inner_a = (json.get("c") as JSONObject).get("a")
 
         val jsonObject = json
+    }
+
+    @Test
+    fun testCreateInstance() {
+        val json = JSONObject("""{"s":"s","f":1.234,"ff":"1.234","i":1,"ii":"1","c":{"s":"s","a":[1,2,42]}}""")
+        val obj = jsonParser.deserialize(json, Base::class.java)
+        var objInstantiated = 42
     }
 
 }

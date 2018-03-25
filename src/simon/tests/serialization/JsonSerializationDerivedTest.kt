@@ -1,16 +1,15 @@
 package simon.tests.serialization
 
-import org.json.JSONException
 import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runners.MethodSorters
 
 import simon.jsonserializer.dataobjects.Derived
 import simon.jsonserializer.dataobjects.DerivedDoubled
-import simon.jsonserializer.parser.exceptions.JsonSerializationException
+import simon.tests.JsonParserTestBase
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class JsonSerializationDerivedTest : JsonSerializationTestBase() {
+class JsonSerializationDerivedTest : JsonParserTestBase() {
 
     @Test
     fun a_serialize_DerivedClass() {

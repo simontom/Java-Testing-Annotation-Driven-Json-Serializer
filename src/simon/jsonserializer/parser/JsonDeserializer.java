@@ -3,6 +3,7 @@ package simon.jsonserializer.parser;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
+import simon.jsonserializer.parser.exceptions.JsonParserException;
 import simon.jsonserializer.parser.helpers.FieldInformationExtractor;
 import simon.jsonserializer.parser.helpers.TypeChecker;
 
@@ -17,13 +18,20 @@ public class JsonDeserializer {
         this.typeChecker = typeChecker;
     }
 
-    public <T> T deserialize(@NotNull JSONObject toBeDeJsonified, Class<T> clazz) {
+    public <T> T deserialize(@NotNull JSONObject toBeDeJsonified, Class<T> clazz) throws JsonParserException {
         requireNonNull(toBeDeJsonified);
         return deserializeHelper(toBeDeJsonified, clazz);
     }
 
-    private <T> T deserializeHelper(JSONObject toBeDeJsonified, Class<T> clazz) {
-        return null;
+    private <T> T deserializeHelper(JSONObject toBeDeJsonified, Class<T> clazz) throws JsonParserException {
+        try {
+            T instance = clazz.newInstance();
+
+            return instance;
+        }
+        catch (Exception e) {
+            throw new JsonParserException("Unable to Deserialize object", e);
+        }
     }
 
 }
