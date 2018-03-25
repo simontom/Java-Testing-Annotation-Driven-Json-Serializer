@@ -9,6 +9,9 @@ public class Derived extends Base {
     @JsonField
     boolean derivedBool = true;
 
+    public Derived() {
+    }
+
     public Derived(Integer integerAsObject, int number, String bar, boolean derivedBool) {
         super(integerAsObject, number);
         this.bar = bar;

@@ -6,10 +6,13 @@ import simon.jsonserializer.parser.JsonField;
 
 public class TestCollection {
     @JsonField
-    private final List<Integer> listIntegers;
+    private List<Integer> listIntegers;
 
     @JsonField
     private List<Base> listBases;
+
+    public TestCollection() {
+    }
 
     public TestCollection(List<Integer> listIntegers, List<Base> listBases) {
         this.listIntegers = listIntegers;

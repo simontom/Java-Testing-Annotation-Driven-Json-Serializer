@@ -5,14 +5,14 @@ import simon.jsonserializer.parser.JsonField;
 
 public class TestClass {
     //region Not Annotated for serialization
-    private final String foo;
+    private String foo;
     //endregion Not Annotated for serialization
 
     //region String
     @JsonField
-    private final String bar;
+    private String bar;
     @JsonField (name = "test_name")
-    private final String baz;
+    private String baz;
     //endregion String
 
     //region Number
@@ -36,6 +36,9 @@ public class TestClass {
     @JsonField (name = "it_is_null")
     TestInner testInnerNull;
     //endregion Inner Object
+
+    public TestClass() {
+    }
 
     public TestClass(String foo, String bar, String baz, TestInner testInner) {
         this.foo = foo;

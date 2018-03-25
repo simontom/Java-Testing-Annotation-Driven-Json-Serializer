@@ -7,12 +7,15 @@ public class TestInner {
     private String bar;
 
     @JsonField (name = "inner_foo")
-    private final long foo;
+    private long foo;
 
     @JsonField
     boolean bool = true;
     @JsonField
     Boolean boolObject = true;
+
+    public TestInner() {
+    }
 
     public TestInner(long foo, String bar) {
         this.foo = foo;
