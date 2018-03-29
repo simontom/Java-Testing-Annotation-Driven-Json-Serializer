@@ -1,11 +1,11 @@
-package simon.jsonserializer.parser;
+package simon.jsonserializer.jsonparser;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
-import simon.jsonserializer.parser.exceptions.JsonParserException;
-import simon.jsonserializer.parser.helpers.FieldInformationExtractor;
-import simon.jsonserializer.parser.helpers.TypeChecker;
+import simon.jsonserializer.jsonparser.exceptions.JsonParserException;
+import simon.jsonserializer.jsonparser.helpers.FieldInformationExtractor;
+import simon.jsonserializer.jsonparser.helpers.TypeChecker;
 
 public class JsonParser {
     private final JsonSerializer serializer;
@@ -23,12 +23,11 @@ public class JsonParser {
         deserializer = new JsonDeserializer(fieldInformationExtractor, typeChecker);
     }
 
-
-    public JSONObject serialize(@NotNull Object toBeJsonified) throws JsonParserException {
+    public JSONObject toJson(@NotNull Object toBeJsonified) throws JsonParserException {
         return serializer.serialize(toBeJsonified);
     }
 
-    public <T> T deserialize(JSONObject toBeDeJsonified, Class<T> clazz) throws JsonParserException {
+    public <T> T fromJson(JSONObject toBeDeJsonified, Class<T> clazz) throws JsonParserException {
         return (T) deserializer.deserialize(toBeDeJsonified, clazz);
     }
 

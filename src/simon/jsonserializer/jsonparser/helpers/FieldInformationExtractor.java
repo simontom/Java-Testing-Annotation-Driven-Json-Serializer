@@ -1,4 +1,4 @@
-package simon.jsonserializer.parser.helpers;
+package simon.jsonserializer.jsonparser.helpers;
 
 import com.sun.istack.internal.NotNull;
 
@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import simon.jsonserializer.parser.JsonField;
-import simon.jsonserializer.parser.TypeConverter;
-import simon.jsonserializer.parser.exceptions.FieldInformationExtractionException;
+import simon.jsonserializer.jsonparser.JsonField;
+import simon.jsonserializer.jsonparser.TypeConverter;
+import simon.jsonserializer.jsonparser.exceptions.FieldInformationExtractionException;
 
 public class FieldInformationExtractor {
 

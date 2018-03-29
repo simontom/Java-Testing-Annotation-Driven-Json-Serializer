@@ -8,10 +8,10 @@ import simon.jsonserializer.dataobjects.Derived;
 import simon.jsonserializer.dataobjects.DerivedDoubled;
 import simon.jsonserializer.dataobjects.TestClass;
 import simon.jsonserializer.dataobjects.TestInner;
-import simon.jsonserializer.parser.JsonSerializer;
-import simon.jsonserializer.parser.exceptions.JsonParserException;
-import simon.jsonserializer.parser.helpers.FieldInformationExtractor;
-import simon.jsonserializer.parser.helpers.TypeChecker;
+import simon.jsonserializer.jsonparser.JsonSerializer;
+import simon.jsonserializer.jsonparser.exceptions.JsonParserException;
+import simon.jsonserializer.jsonparser.helpers.FieldInformationExtractor;
+import simon.jsonserializer.jsonparser.helpers.TypeChecker;
 
 public class Main {
 

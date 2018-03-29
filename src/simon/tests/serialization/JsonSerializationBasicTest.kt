@@ -3,7 +3,7 @@ package simon.tests.serialization
 import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runners.MethodSorters
-import simon.jsonserializer.parser.exceptions.JsonParserException
+import simon.jsonserializer.jsonparser.exceptions.JsonParserException
 import simon.tests.JsonParserTestBase
 import simon.tests.TestData
 

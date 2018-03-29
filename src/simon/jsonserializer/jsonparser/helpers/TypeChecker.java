@@ -1,4 +1,4 @@
-package simon.jsonserializer.parser.helpers;
+package simon.jsonserializer.jsonparser.helpers;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

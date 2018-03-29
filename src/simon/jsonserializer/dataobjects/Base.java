@@ -1,7 +1,7 @@
 package simon.jsonserializer.dataobjects;
 
 import simon.jsonserializer.IntegerToStringTypeConverter;
-import simon.jsonserializer.parser.JsonField;
+import simon.jsonserializer.jsonparser.JsonField;
 
 public class Base {
     @JsonField (optional = false, name = "_mandatory_and_converted_", typeConverter = IntegerToStringTypeConverter.class)

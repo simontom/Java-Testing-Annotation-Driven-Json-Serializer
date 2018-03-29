@@ -1,4 +1,4 @@
-package simon.jsonserializer.parser;
+package simon.jsonserializer.jsonparser;
 
 public interface
 TypeConverter<OUT, IN> {

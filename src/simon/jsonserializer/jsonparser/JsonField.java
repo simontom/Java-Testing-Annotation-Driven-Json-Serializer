@@ -1,4 +1,4 @@
-package simon.jsonserializer.parser;
+package simon.jsonserializer.jsonparser;
 
 import com.sun.istack.internal.NotNull;
 

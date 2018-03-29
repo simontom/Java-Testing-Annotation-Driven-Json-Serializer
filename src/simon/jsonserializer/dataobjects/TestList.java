@@ -2,7 +2,7 @@ package simon.jsonserializer.dataobjects;
 
 import java.util.List;
 
-import simon.jsonserializer.parser.JsonField;
+import simon.jsonserializer.jsonparser.JsonField;
 
 public class TestList {
     @JsonField

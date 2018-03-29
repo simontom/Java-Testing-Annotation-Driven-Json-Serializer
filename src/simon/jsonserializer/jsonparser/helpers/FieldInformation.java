@@ -1,8 +1,8 @@
-package simon.jsonserializer.parser.helpers;
+package simon.jsonserializer.jsonparser.helpers;
 
 import java.lang.reflect.Field;
 
-import simon.jsonserializer.parser.TypeConverter;
+import simon.jsonserializer.jsonparser.TypeConverter;
 
 public class FieldInformation {
     private final Field field;

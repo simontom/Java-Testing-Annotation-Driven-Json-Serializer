@@ -29,7 +29,7 @@ class JsonDeserializationBasicTest() : JsonParserTestBase() {
     @Test
     fun testCreateInstance() {
         val json = JSONObject("""{"s":"s","f":1.234,"ff":"1.234","i":1,"ii":"1","c":{"s":"s","a":[1,2,42]}}""")
-        val obj = jsonParser.deserialize(json, Base::class.java)
+        val obj = jsonParser.fromJson(json, Base::class.java)
         var objInstantiated = 42
     }
 

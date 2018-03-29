@@ -1,7 +1,7 @@
 package simon.jsonserializer.dataobjects;
 
 import simon.jsonserializer.IntegerToStringTypeConverter;
-import simon.jsonserializer.parser.JsonField;
+import simon.jsonserializer.jsonparser.JsonField;
 
 public class TestClass {
     //region Not Annotated for serialization

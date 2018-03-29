@@ -2,7 +2,7 @@ package simon.jsonserializer.dataobjects;
 
 import java.util.Map;
 
-import simon.jsonserializer.parser.JsonField;
+import simon.jsonserializer.jsonparser.JsonField;
 
 public class TestMap {
     @JsonField

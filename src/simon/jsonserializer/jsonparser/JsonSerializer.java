@@ -1,4 +1,4 @@
-package simon.jsonserializer.parser;
+package simon.jsonserializer.jsonparser;
 
 import com.sun.istack.internal.NotNull;
 
@@ -9,10 +9,10 @@ import org.json.JSONObject;
 import java.util.Collection;
 import java.util.Map;
 
-import simon.jsonserializer.parser.exceptions.JsonParserException;
-import simon.jsonserializer.parser.helpers.FieldInformation;
-import simon.jsonserializer.parser.helpers.FieldInformationExtractor;
-import simon.jsonserializer.parser.helpers.TypeChecker;
+import simon.jsonserializer.jsonparser.exceptions.JsonParserException;
+import simon.jsonserializer.jsonparser.helpers.FieldInformation;
+import simon.jsonserializer.jsonparser.helpers.FieldInformationExtractor;
+import simon.jsonserializer.jsonparser.helpers.TypeChecker;
 
 import static java.util.Objects.requireNonNull;
 

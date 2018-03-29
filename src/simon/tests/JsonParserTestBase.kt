@@ -3,7 +3,7 @@ package simon.tests
 import org.json.JSONObject
 import org.junit.Assert
 import org.junit.Before
-import simon.jsonserializer.parser.JsonParser
+import simon.jsonserializer.jsonparser.JsonParser
 import java.util.*
 
 open class JsonParserTestBase {
@@ -22,19 +22,24 @@ open class JsonParserTestBase {
 
     protected fun serializeAndPrint(testName: String, `object`: Any) {
         println("\t" + testName)
-        val jsonObject = jsonParser.serialize(`object`)
+        val jsonObject = jsonParser.toJson(`object`)
         println(jsonObject.toString(4))
     }
 
-    protected fun serializeAndCompare(expectedAsString: String?, toBeSerialized: Any) {
-        val serialized = jsonParser.serialize(toBeSerialized)
-        val expected = JSONObject(expectedAsString)
+    protected fun serializeAndCompare(expected: String?, toBeJsonified: Any) {
+        val result = jsonParser.toJson(toBeJsonified)
+        val expectedJson = JSONObject(expected)
 
-        Assert.assertEquals(expected.toString(), serialized.toString())
+        Assert.assertEquals(expectedJson.toString(), result.toString())
     }
 
-    protected fun deserializeAndCompare() {
+    protected inline fun <reified T> deserializeAndCompare(
+            expected: T, toBeDeJsonified: String) {
 
+        val json = JSONObject(toBeDeJsonified)
+        val result = jsonParser.fromJson(json, T::class.java)
+
+        Assert.assertEquals(expected, result)
     }
 
 }
