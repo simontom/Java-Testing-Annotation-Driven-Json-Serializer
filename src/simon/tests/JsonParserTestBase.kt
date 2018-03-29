@@ -33,13 +33,13 @@ open class JsonParserTestBase {
         Assert.assertEquals(expectedJson.toString(), result.toString())
     }
 
-    protected inline fun <reified T> deserializeAndCompare(
-            expected: T, toBeDeJsonified: String) {
+    protected inline fun <reified T> deserializeAndCompare(expected: T, toBeDeJsonified: String?) {
 
         val json = JSONObject(toBeDeJsonified)
         val result = jsonParser.fromJson(json, T::class.java)
 
-        Assert.assertEquals(expected, result)
+//        Assert.assertEquals(expected, result)
+        Assert.assertTrue(expected!!.equals(result))
     }
 
 }

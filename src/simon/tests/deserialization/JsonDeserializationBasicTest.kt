@@ -1,36 +1,27 @@
 package simon.tests.deserialization
 
-import org.json.JSONObject
 import org.junit.FixMethodOrder
 import org.junit.runners.MethodSorters
-import simon.jsonserializer.dataobjects.Base
+import simon.jsonserializer.jsonparser.exceptions.JsonParserException
 import simon.tests.JsonParserTestBase
-import kotlin.test.Test
+import simon.tests.TestData
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class JsonDeserializationBasicTest() : JsonParserTestBase() {
 
-    @Test
-    fun test() {
-        val json = JSONObject("""{"s":"s","f":1.234,"ff":"1.234","i":1,"ii":"1","c":{"s":"s","a":[1,2,42]}}""")
-        val data1 = json.get("s")
-        val data2 = json.get("f")
-        val data2_ = json.get("ff")
-        val data3 = json.get("i")
-        val data3_ = json.get("ii")
-        val data4 = json.get("c")
-        val data4_inner = json.get("c")
-        val data4_inner_s = (json.get("c") as JSONObject).get("s")
-        val data4_inner_a = (json.get("c") as JSONObject).get("a")
-
-        val jsonObject = json
+    @org.junit.Test
+    fun a_deserialize_BaseClass() {
+        deserializeAndCompare(TestData.base_ok1, TestData.base_ok1_json)
     }
 
-    @Test
-    fun testCreateInstance() {
-        val json = JSONObject("""{"s":"s","f":1.234,"ff":"1.234","i":1,"ii":"1","c":{"s":"s","a":[1,2,42]}}""")
-        val obj = jsonParser.fromJson(json, Base::class.java)
-        var objInstantiated = 42
+    @org.junit.Test(expected = JsonParserException::class)
+    fun b_deserialize_BaseClassThrowsException() {
+        deserializeAndCompare(TestData.base_ex1, TestData.base_ex1_json)
+    }
+
+    @org.junit.Test
+    fun c_deserialize_WithInnerClass() {
+        deserializeAndCompare(TestData.withInner_ok1, TestData.withInner_ok1_json)
     }
 
 }

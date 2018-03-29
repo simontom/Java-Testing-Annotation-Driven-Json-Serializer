@@ -47,6 +47,11 @@ object TestData {
 	    "test_number": $int2
     }"""
 
+    const val base_ex1_json = """
+    {
+	    "test_number": $int2
+    }"""
+
     const val withInner_ok1_json = """
     {
         "bar": "$str2",

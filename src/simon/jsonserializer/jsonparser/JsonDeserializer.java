@@ -41,6 +41,8 @@ public class JsonDeserializer {
                 else {
                     jsonData = toBeDeJsonified.get(fieldInformation.name);
                 }
+
+                // TODO: Add deserialization logic
             }
 
             return instance;
