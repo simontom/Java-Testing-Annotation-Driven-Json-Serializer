@@ -1,12 +1,12 @@
 package simon.tests
 
 import org.junit.Before
-import simon.jsonserializer.parser.Parser
+import simon.jsonserializer.parser.JsonParser
 import java.util.*
 
 open class JsonParserTestBase {
 
-    internal lateinit var jsonParser: Parser
+    internal lateinit var jsonParser: JsonParser
     internal lateinit var random: Random
 
     internal val randomInt: Int
@@ -14,7 +14,7 @@ open class JsonParserTestBase {
 
     @Before
     fun setUp() {
-        jsonParser = Parser.create()
+        jsonParser = JsonParser.create()
         random = Random()
     }
 

@@ -7,18 +7,18 @@ import simon.jsonserializer.parser.exceptions.JsonParserException;
 import simon.jsonserializer.parser.helpers.FieldInformationExtractor;
 import simon.jsonserializer.parser.helpers.TypeChecker;
 
-public class Parser {
+public class JsonParser {
     private final JsonSerializer serializer;
     private final JsonDeserializer deserializer;
 
-    public static Parser create() {
+    public static JsonParser create() {
         FieldInformationExtractor fieldInformationExtractor = new FieldInformationExtractor();
         TypeChecker typeChecker = new TypeChecker();
 
-        return new Parser(fieldInformationExtractor, typeChecker);
+        return new JsonParser(fieldInformationExtractor, typeChecker);
     }
 
-    private Parser(FieldInformationExtractor fieldInformationExtractor, TypeChecker typeChecker) {
+    private JsonParser(FieldInformationExtractor fieldInformationExtractor, TypeChecker typeChecker) {
         serializer = new JsonSerializer(fieldInformationExtractor, typeChecker);
         deserializer = new JsonDeserializer(fieldInformationExtractor, typeChecker);
     }
