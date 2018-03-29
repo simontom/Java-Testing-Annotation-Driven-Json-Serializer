@@ -3,14 +3,14 @@ package simon.tests
 import simon.jsonserializer.dataobjects.*
 
 object TestData {
-    const val int1 = 8
-    const val int2 = 42
-    const val int3 = 50
-    const val int4 = 100
+    const val int1 = 1
+    const val int2 = 2
+    const val int3 = 3
+    const val int4 = 4
 
-    const val str1 = "abc"
-    const val str2 = "def"
-    const val str3 = "ghi"
+    const val str1 = "str1"
+    const val str2 = "str2"
+    const val str3 = "str3"
 
     const val bool1 = true
     const val bool2 = false

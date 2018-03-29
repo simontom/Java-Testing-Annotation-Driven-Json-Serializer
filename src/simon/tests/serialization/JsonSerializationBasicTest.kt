@@ -12,17 +12,20 @@ class JsonSerializationBasicTest : JsonParserTestBase() {
 
     @Test
     fun a_serialize_BaseClass() {
-        serializeAndPrint("Base", TestData.base_ok1)
+//        serializeAndPrint("Base", TestData.base_ok1)
+        val json = jsonParser.serialize(TestData.base_ok1)
     }
 
     @Test(expected = JsonParserException::class)
     fun b_serialize_BaseClassThrowsException() {
-        serializeAndPrint("Base - Prints no data\nJsonParserException caught", TestData.base_ex1)
+//        serializeAndPrint("Base - Prints no data\nJsonParserException caught", TestData.base_ex1)
+        val json = jsonParser.serialize(TestData.base_ex1)
     }
 
     @Test
     fun c_serialize_WithInnerClass() {
-        serializeAndPrint("With Inner", TestData.withInner_ok1)
+//        serializeAndPrint("With Inner", TestData.withInner_ok1)
+        val json = jsonParser.serialize(TestData.withInner_ok1)
     }
 
 }
