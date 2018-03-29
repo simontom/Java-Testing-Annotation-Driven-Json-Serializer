@@ -32,7 +32,7 @@ public class TestClass {
     @JsonField (name = "inner")
     private TestInner testInner;
     @JsonField (name = "it_is_not_null")
-    TestInner testInnerNotNull = new TestInner(1, "2");
+    TestInner testInnerNotNull = new TestInner(11, "22");
     @JsonField (name = "it_is_null")
     TestInner testInnerNull;
     //endregion Inner Object

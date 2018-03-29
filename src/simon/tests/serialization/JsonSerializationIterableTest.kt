@@ -18,7 +18,7 @@ class JsonSerializationIterableTest : JsonParserTestBase() {
 
     @Test
     fun b_serialize_ClassWithList() {
-//        serializeAndPrint("Class With Collection", TestData.testList_ok1)
+//        serializeAndPrint("Class With List", TestData.testList_ok1)
         val json = jsonParser.serialize(TestData.testList_ok1)
     }
 

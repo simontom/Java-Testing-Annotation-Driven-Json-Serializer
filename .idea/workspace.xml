@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3955b738-6980-4dbb-b1cc-210de92e78c7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/simon/tests/TestData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/tests/TestData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationBasicTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationBasicTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationDerivedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationDerivedTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationIterableTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationIterableTest.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,11 +17,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestData.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JsonParserTestBase.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simon/tests/JsonParserTestBase.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestData.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simon/tests/TestData.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="-576">
+              <folding>
+                <element signature="e#1403#1856#0" />
+                <element signature="e#2064#2189#0" />
+                <element signature="e#2251#2429#0" />
+                <element signature="e#2494#2787#0" />
+                <element signature="e#2841#3132#0" />
+                <element signature="e#3185#3514#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JsonSerializationIterableTest.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationIterableTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+              <folding>
+                <element signature="e#35#259#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,6 +76,12 @@
       <find>org.junit.Test</find>
       <find>list</find>
       <find>testArray_ok1</find>
+      <find>withInner_ok</find>
+      <find>derived_o</find>
+      <find>withInner_ok1</find>
+      <find>derivedDoubl</find>
+      <find>derivedDoub</find>
+      <find>estArray_ok</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -90,7 +124,6 @@
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/Derived.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/DerivedDoubled.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestArray.java" />
-        <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestClass.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestCollection.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestInner.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestMap.java" />
@@ -103,10 +136,11 @@
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/parser/helpers/TypeChecker.java" />
         <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestList.java" />
         <option value="$PROJECT_DIR$/src/simon/tests/JsonParserTestBase.kt" />
-        <option value="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationIterableTest.kt" />
         <option value="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationBasicTest.kt" />
         <option value="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationDerivedTest.kt" />
+        <option value="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestClass.java" />
         <option value="$PROJECT_DIR$/src/simon/tests/TestData.kt" />
+        <option value="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationIterableTest.kt" />
       </list>
     </option>
   </component>
@@ -248,7 +282,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.JsonSerializationIterableTest">
+  <component name="RunManager" selected="JUnit.simon.tests.serialization in AnnotationDrivenJsonSerializer">
     <configuration name="JsonSerializationBasicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AnnotationDrivenJsonSerializer" />
       <extension name="coverage">
@@ -388,8 +422,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.JsonSerializationIterableTest" />
         <item itemvalue="JUnit.simon.tests.serialization in AnnotationDrivenJsonSerializer" />
+        <item itemvalue="JUnit.JsonSerializationIterableTest" />
         <item itemvalue="JUnit.JsonSerializationDerivedTest" />
         <item itemvalue="JUnit.JsonSerializationBasicTest" />
         <item itemvalue="JUnit.simon.tests in AnnotationDrivenJsonSerializer" />
@@ -410,9 +444,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="simon_tests_serialization_in_AnnotationDrivenJsonSerializer - 2018.03.25 at 21h 55m 46s.xml">
-      <configuration name="simon.tests.serialization in AnnotationDrivenJsonSerializer" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="simon_tests_serialization_in_AnnotationDrivenJsonSerializer - 2018.03.25 at 22h 55m 09s.xml">
       <configuration name="simon.tests.serialization in AnnotationDrivenJsonSerializer" configurationId="JUnit" />
     </history-entry>
@@ -440,6 +471,9 @@
     <history-entry file="JsonSerializationIterableTest - 2018.03.29 at 21h 42m 46s.xml">
       <configuration name="JsonSerializationIterableTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="simon_tests_serialization_in_AnnotationDrivenJsonSerializer - 2018.03.29 at 21h 53m 02s.xml">
+      <configuration name="simon.tests.serialization in AnnotationDrivenJsonSerializer" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1737" height="944" extended-state="6" />
@@ -455,7 +489,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32945737" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20726623" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20726623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -464,6 +498,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" x="0" y="0" width="384" height="744" id="Documentation" side_tool="true" weight="0.31268612" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32893288" />
@@ -719,13 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/DerivedDoubled.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -780,34 +808,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/Base.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/Derived.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestInner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -868,6 +868,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationBasicTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="27" column="59" lean-forward="true" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+          <folding>
+            <element signature="e#35#259#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationDerivedTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#35#193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestInner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/Base.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/Derived.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/DerivedDoubled.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="86" lean-forward="true" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -882,40 +937,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationBasicTest.kt">
+    <entry file="file://$PROJECT_DIR$/src/simon/tests/TestData.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+        <state relative-caret-position="-576">
           <folding>
-            <element signature="e#35#259#0" expanded="true" />
+            <element signature="e#1403#1856#0" />
+            <element signature="e#2064#2189#0" />
+            <element signature="e#2251#2429#0" />
+            <element signature="e#2494#2787#0" />
+            <element signature="e#2841#3132#0" />
+            <element signature="e#3185#3514#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationIterableTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="40" />
+        <state relative-caret-position="660">
+          <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
           <folding>
             <element signature="e#35#259#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationDerivedTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#35#193#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simon/tests/TestData.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
         </state>
       </provider>
     </entry>
