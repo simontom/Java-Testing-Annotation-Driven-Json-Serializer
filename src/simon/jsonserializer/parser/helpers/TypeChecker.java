@@ -3,7 +3,7 @@ package simon.jsonserializer.parser.helpers;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 public class TypeChecker {
@@ -78,8 +78,8 @@ public class TypeChecker {
         return fieldData.getClass().isArray();
     }
 
-    public boolean isCollection(Object fieldData) {
-        return Collection.class.isAssignableFrom(fieldData.getClass());
+    public boolean isList(Object fieldData) {
+        return List.class.isAssignableFrom(fieldData.getClass());
     }
 
     public boolean isMap(Object fieldData) {

@@ -66,7 +66,7 @@ public class JsonSerializer {
         if (typeChecker.isArray(fieldInformation.data)) {
             fieldInformation.data = serializeArray(fieldInformation.data);
         }
-        else if (typeChecker.isCollection(fieldInformation.data)) {
+        else if (typeChecker.isList(fieldInformation.data)) {
             fieldInformation.data = serializeCollection(fieldInformation.data);
         }
         else if (typeChecker.isMap(fieldInformation.data)) {

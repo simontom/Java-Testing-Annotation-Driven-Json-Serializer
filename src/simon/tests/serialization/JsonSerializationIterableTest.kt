@@ -3,51 +3,32 @@ package simon.tests.serialization
 import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runners.MethodSorters
-import simon.jsonserializer.dataobjects.Base
-import simon.jsonserializer.dataobjects.TestArray
-import simon.jsonserializer.dataobjects.TestCollection
-import simon.jsonserializer.dataobjects.TestMap
 import simon.jsonserializer.parser.exceptions.JsonParserException
 import simon.tests.JsonParserTestBase
+import simon.tests.TestData
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class JsonSerializationIterableTest : JsonParserTestBase() {
 
     @Test
     fun a_serialize_ClassWithArray() {
-        val integers = arrayOf(randomInt, randomInt, randomInt)
-        val bases = arrayOf(Base(randomInt, randomInt), Base(randomInt, randomInt))
-        val testArray = TestArray(integers, bases)
-
-        serializeAndPrint("Class With Array", testArray)
+        serializeAndPrint("Class With Array", TestData.testArray_ok1)
     }
 
     @Test
-    fun b_serialize_ClassWithCollection() {
-        val integers = listOf(randomInt, randomInt, randomInt)
-        val bases = listOf(Base(randomInt, randomInt), Base(randomInt, randomInt))
-        val testCollection = TestCollection(integers, bases)
-
-        serializeAndPrint("Class With Collection", testCollection)
+    fun b_serialize_ClassWithList() {
+        serializeAndPrint("Class With Collection", TestData.testList_ok1)
     }
 
     @Test
     fun c_serialize_ClassWithMap() {
-        val mapIntegers = hashMapOf("1" to 1, "2" to 2, "3" to 3)
-        val mapBases = hashMapOf("base 1" to Base(randomInt, randomInt), "base 2" to Base(randomInt, randomInt))
-        val testMap = TestMap(mapIntegers, mapBases)
-
-        serializeAndPrint("Class With Map", testMap)
+        serializeAndPrint("Class With Map", TestData.testMap_ok1)
     }
 
     @Test(expected = JsonParserException::class)
-//    @Test
     fun d_serialize_ClassWithMapThrowsException() {
-        val mapIntegers = hashMapOf("1" to 1, "2" to 2, "3" to 3)
-        val mapBases = null
-        val testMap = TestMap(mapIntegers, mapBases)
-
-        serializeAndPrint("Class With Map - Prints no data\nJsonParserException caught", testMap)
+        serializeAndPrint("Class With Map - Prints no data\nJsonParserException caught",
+                TestData.testMap_ex1)
     }
 
 }
