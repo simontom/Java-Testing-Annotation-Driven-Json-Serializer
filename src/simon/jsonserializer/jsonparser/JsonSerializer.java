@@ -13,18 +13,18 @@ import java.util.Map;
 import simon.jsonserializer.jsonparser.exceptions.JsonParserException;
 import simon.jsonserializer.jsonparser.helpers.FieldInformation;
 import simon.jsonserializer.jsonparser.helpers.FieldInformationExtractor;
-import simon.jsonserializer.jsonparser.helpers.TypeChecker;
+import simon.jsonserializer.jsonparser.helpers.TypeHelper;
 
 import static java.util.Objects.requireNonNull;
 
 public class JsonSerializer {
 
     private final FieldInformationExtractor extractor;
-    private final TypeChecker typeChecker;
+    private final TypeHelper typeHelper;
 
-    public JsonSerializer(FieldInformationExtractor fieldInformationExtractor, TypeChecker typeChecker) {
+    public JsonSerializer(FieldInformationExtractor fieldInformationExtractor, TypeHelper typeHelper) {
         this.extractor = fieldInformationExtractor;
-        this.typeChecker = typeChecker;
+        this.typeHelper = typeHelper;
     }
 
     public JSONObject serialize(@NotNull Object toBeJsonified) throws JsonParserException {
@@ -63,17 +63,17 @@ public class JsonSerializer {
     private void processField(FieldInformation fieldInformation)
             throws JsonParserException, JSONException {
 
-        if (typeChecker.isTypeArray(fieldInformation.data.getClass())) {
+        if (typeHelper.isTypeArray(fieldInformation.data.getClass())) {
             fieldInformation.data = serializeArray(fieldInformation.data);
         }
-        else if (typeChecker.isTypeArrayList(fieldInformation.data.getClass())) {
+        else if (typeHelper.isTypeArrayList(fieldInformation.data.getClass())) {
             fieldInformation.data = serializeArrayList(fieldInformation.data);
         }
-        else if (typeChecker.isTypeHashMap(fieldInformation.data.getClass())) {
+        else if (typeHelper.isTypeHashMap(fieldInformation.data.getClass())) {
             fieldInformation.data = serializeHashMap(fieldInformation.data);
         }
-        else if (!typeChecker.isDataPrimitive(fieldInformation.data) &&
-                !typeChecker.isDataPrimitiveJson(fieldInformation.data)) {
+        else if (!typeHelper.isDataPrimitive(fieldInformation.data) &&
+                !typeHelper.isDataPrimitiveJson(fieldInformation.data)) {
             fieldInformation.data = serializeHelper(fieldInformation.data);
         }
     }
@@ -82,8 +82,8 @@ public class JsonSerializer {
         JSONArray jsonArray = new JSONArray();
 
         for (Object item : ((Object[]) fieldData)) {
-            if (!typeChecker.isDataPrimitive(item) &&
-                    !typeChecker.isDataPrimitiveJson(item)) {
+            if (!typeHelper.isDataPrimitive(item) &&
+                    !typeHelper.isDataPrimitiveJson(item)) {
                 item = serializeHelper(item);
             }
             jsonArray.put(item);
@@ -96,8 +96,8 @@ public class JsonSerializer {
         JSONArray jsonArray = new JSONArray();
 
         for (Object item : ((List<?>) fieldData)) {
-            if (!typeChecker.isDataPrimitive(item) &&
-                    !typeChecker.isDataPrimitiveJson(item)) {
+            if (!typeHelper.isDataPrimitive(item) &&
+                    !typeHelper.isDataPrimitiveJson(item)) {
                 item = serializeHelper(item);
             }
             jsonArray.put(item);
@@ -113,8 +113,8 @@ public class JsonSerializer {
             String key = item.getKey();
             Object data = item.getValue();
 
-            if (!typeChecker.isDataPrimitive(data) &&
-                    !typeChecker.isDataPrimitiveJson(data)) {
+            if (!typeHelper.isDataPrimitive(data) &&
+                    !typeHelper.isDataPrimitiveJson(data)) {
                 data = serializeHelper(data);
             }
             jsonObject.put(key, data);

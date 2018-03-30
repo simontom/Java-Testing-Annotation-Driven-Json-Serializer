@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TypeChecker {
+public class TypeHelper {
 
     public boolean isDataPrimitiveJson(Object fieldData) {
         return isTypeJSONArray(fieldData.getClass()) ||
