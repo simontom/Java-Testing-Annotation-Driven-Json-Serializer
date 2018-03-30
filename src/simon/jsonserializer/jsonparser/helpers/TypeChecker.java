@@ -8,7 +8,6 @@ import java.util.HashMap;
 
 public class TypeChecker {
 
-    //region Primitive
     public boolean isDataPrimitiveJson(Object fieldData) {
         return isTypeJSONArray(fieldData.getClass()) ||
                 isTypeJSONObject(fieldData.getClass());
@@ -21,7 +20,12 @@ public class TypeChecker {
                 isTypeCharacter(fieldData.getClass()) ||
                 isTypeNumber(fieldData.getClass());
     }
-    //endregion Primitive
+
+    public boolean isTypeIterable(Class<?> clazz) {
+        return isTypeArray(clazz) ||
+                isTypeArrayList(clazz) ||
+                isTypeHashMap(clazz);
+    }
 
     //region Json
     public boolean isTypeJSONObject(Class<?> clazz) {
@@ -33,21 +37,21 @@ public class TypeChecker {
     }
     //endregion Json
 
-    //region String, Boolean, Char
+    //region String, Boolean, Character
     public boolean isTypeString(Class<?> clazz) {
         return clazz.isAssignableFrom(String.class);
-    }
-
-    public boolean isTypeBoolean(Class<?> clazz) {
-        return clazz.isAssignableFrom(Boolean.class) ||
-                clazz.isAssignableFrom(Boolean.TYPE);
     }
 
     public boolean isTypeCharacter(Class<?> clazz) {
         return clazz.isAssignableFrom(Character.class) ||
                 clazz.isAssignableFrom(Character.TYPE);
     }
-    //endregion String, Boolean, Char
+
+    public boolean isTypeBoolean(Class<?> clazz) {
+        return clazz.isAssignableFrom(Boolean.class) ||
+                clazz.isAssignableFrom(Boolean.TYPE);
+    }
+    //endregion String, Boolean, Character
 
     //region Number
     public boolean isTypeNumber(Class<?> clazz) {
@@ -86,16 +90,16 @@ public class TypeChecker {
     //endregion Number
 
     //region Iterable
-    public boolean isArray(Object fieldData) {
-        return fieldData.getClass().isArray();
+    public boolean isTypeArray(Class<?> clazz) {
+        return clazz.isArray();
     }
 
-    public boolean isArrayList(Object fieldData) {
-        return ArrayList.class.isAssignableFrom(fieldData.getClass());
+    public boolean isTypeArrayList(Class<?> clazz) {
+        return ArrayList.class.isAssignableFrom(clazz);
     }
 
-    public boolean isHashMap(Object fieldData) {
-        return HashMap.class.isAssignableFrom(fieldData.getClass());
+    public boolean isTypeHashMap(Class<?> clazz) {
+        return HashMap.class.isAssignableFrom(clazz);
     }
     //endregion Iterable
 

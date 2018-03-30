@@ -30,8 +30,8 @@ public class JsonDeserializer {
         try {
             T instance = clazz.newInstance();
             for (FieldInformation fieldInformation : extractor.extractFieldInformations(instance)) {
-                Object data = toBeDeJsonified.opt(fieldInformation.name);
-                if (data == null) {
+                Object dataFromJson = toBeDeJsonified.opt(fieldInformation.name);
+                if (dataFromJson == null) {
                     if (fieldInformation.isOptional) {
                         continue;
                     }
@@ -39,8 +39,8 @@ public class JsonDeserializer {
                     throw new JsonParserException(message);
                 }
 
-                data = fieldInformation.typeConverter.onDeserialization(data);
-                processField(fieldInformation.field, instance, data);
+                dataFromJson = fieldInformation.typeConverter.onDeserialization(dataFromJson);
+                processField(fieldInformation.field, instance, dataFromJson);
             }
 
             return instance;
@@ -50,57 +50,57 @@ public class JsonDeserializer {
         }
     }
 
-    private void processField(Field field, Object instance, Object data)
+    private void processField(Field field, Object instance, Object dataFromJson)
             throws IllegalAccessException, JsonParserException {
 
-        if (typeChecker.isTypeString(data.getClass())) {
-            processText(field, instance, (String) data);
+        if (typeChecker.isTypeString(dataFromJson.getClass())) {
+            processText(field, instance, (String) dataFromJson);
         }
-        else if (typeChecker.isTypeBoolean(data.getClass())) {
-            field.set(instance, data);
+        else if (typeChecker.isTypeBoolean(dataFromJson.getClass())) {
+            field.set(instance, dataFromJson);
         }
-        else if (typeChecker.isTypeNumber(data.getClass())) {
-            processNumber(field, instance, (Number) data);
+        else if (typeChecker.isTypeNumber(dataFromJson.getClass())) {
+            processNumber(field, instance, (Number) dataFromJson);
         }
     }
 
-    private void processText(Field field, Object instance, String text)
+    private void processText(Field field, Object instance, String dataFromJson)
             throws IllegalAccessException, JsonParserException {
 
         Class<?> fieldClass = field.getType();
         if (typeChecker.isTypeString(fieldClass)) {
-            field.set(instance, text);
+            field.set(instance, dataFromJson);
         }
         else if (typeChecker.isTypeCharacter(fieldClass)) {
-            if (text.length() != 1) {
+            if (dataFromJson.length() != 1) {
                 throw new JsonParserException("Cannot be casted to Character");
             }
-            field.set(instance, text.charAt(0));
+            field.set(instance, dataFromJson.charAt(0));
         }
     }
 
-    private void processNumber(Field field, Object instance, Number number)
+    private void processNumber(Field field, Object instance, Number dataFromJson)
             throws IllegalAccessException {
 
         Class<?> fieldClass = field.getType();
 
         if (typeChecker.isTypeByte(fieldClass)) {
-            field.set(instance, number.byteValue());
+            field.set(instance, dataFromJson.byteValue());
         }
         else if (typeChecker.isTypeShort(fieldClass)) {
-            field.set(instance, number.shortValue());
+            field.set(instance, dataFromJson.shortValue());
         }
         else if (typeChecker.isTypeInteger(fieldClass)) {
-            field.set(instance, number.intValue());
+            field.set(instance, dataFromJson.intValue());
         }
         else if (typeChecker.isTypeLong(fieldClass)) {
-            field.set(instance, number.longValue());
+            field.set(instance, dataFromJson.longValue());
         }
         else if (typeChecker.isTypeFloat(fieldClass)) {
-            field.set(instance, number.floatValue());
+            field.set(instance, dataFromJson.floatValue());
         }
         else if (typeChecker.isTypeDouble(fieldClass)) {
-            field.set(instance, number.doubleValue());
+            field.set(instance, dataFromJson.doubleValue());
         }
     }
 

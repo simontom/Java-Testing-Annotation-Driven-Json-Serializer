@@ -63,13 +63,13 @@ public class JsonSerializer {
     private void processField(FieldInformation fieldInformation)
             throws JsonParserException, JSONException {
 
-        if (typeChecker.isArray(fieldInformation.data)) {
+        if (typeChecker.isTypeArray(fieldInformation.data.getClass())) {
             fieldInformation.data = serializeArray(fieldInformation.data);
         }
-        else if (typeChecker.isArrayList(fieldInformation.data)) {
+        else if (typeChecker.isTypeArrayList(fieldInformation.data.getClass())) {
             fieldInformation.data = serializeArrayList(fieldInformation.data);
         }
-        else if (typeChecker.isHashMap(fieldInformation.data)) {
+        else if (typeChecker.isTypeHashMap(fieldInformation.data.getClass())) {
             fieldInformation.data = serializeHashMap(fieldInformation.data);
         }
         else if (!typeChecker.isDataPrimitive(fieldInformation.data) &&
