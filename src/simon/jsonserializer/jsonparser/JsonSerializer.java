@@ -6,7 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import simon.jsonserializer.jsonparser.exceptions.JsonParserException;
@@ -66,13 +67,14 @@ public class JsonSerializer {
         if (typeChecker.isArray(fieldInformation.data)) {
             fieldInformation.data = serializeArray(fieldInformation.data);
         }
-        else if (typeChecker.isList(fieldInformation.data)) {
-            fieldInformation.data = serializeCollection(fieldInformation.data);
+        else if (typeChecker.isArrayList(fieldInformation.data)) {
+            fieldInformation.data = serializeArrayList(fieldInformation.data);
         }
-        else if (typeChecker.isMap(fieldInformation.data)) {
-            fieldInformation.data = serializeMap(fieldInformation.data);
+        else if (typeChecker.isHashMap(fieldInformation.data)) {
+            fieldInformation.data = serializeHashMap(fieldInformation.data);
         }
-        else if (!typeChecker.isElementDataPrimitive(fieldInformation.data)) {
+        else if (!typeChecker.isDataPrimitive(fieldInformation.data) &&
+                !typeChecker.isDataJson(fieldInformation.data)) {
             fieldInformation.data = serializeHelper(fieldInformation.data);
         }
     }
@@ -80,38 +82,40 @@ public class JsonSerializer {
     private JSONArray serializeArray(Object fieldData) throws JsonParserException {
         JSONArray jsonArray = new JSONArray();
 
-        Object arrayItems[] = (Object[]) fieldData;
-        for (Object arrayItem : arrayItems) {
-            if (!typeChecker.isElementDataPrimitive(arrayItem)) {
-                arrayItem = serializeHelper(arrayItem);
+        for (Object item : ((Object[]) fieldData)) {
+            if (!typeChecker.isDataPrimitive(item) &&
+                    !typeChecker.isDataJson(item)) {
+                item = serializeHelper(item);
             }
-            jsonArray.put(arrayItem);
+            jsonArray.put(item);
         }
 
         return jsonArray;
     }
 
-    private JSONArray serializeCollection(Object fieldData) throws JsonParserException {
+    private JSONArray serializeArrayList(Object fieldData) throws JsonParserException {
         JSONArray jsonArray = new JSONArray();
 
-        for (Object collectionItem : ((Collection<?>) fieldData)) {
-            if (!typeChecker.isElementDataPrimitive(collectionItem)) {
-                collectionItem = serializeHelper(collectionItem);
+        for (Object item : ((List<?>) fieldData)) {
+            if (!typeChecker.isDataPrimitive(item) &&
+                    !typeChecker.isDataJson(item)) {
+                item = serializeHelper(item);
             }
-            jsonArray.put(collectionItem);
+            jsonArray.put(item);
         }
 
         return jsonArray;
     }
 
-    private JSONObject serializeMap(Object fieldData) throws JSONException, JsonParserException {
+    private JSONObject serializeHashMap(Object fieldData) throws JSONException, JsonParserException {
         JSONObject jsonObject = new JSONObject();
 
-        for (Map.Entry<String, ?> mapItem : ((Map<String, ?>) fieldData).entrySet()) {
-            String key = mapItem.getKey();
-            Object data = mapItem.getValue();
+        for (Map.Entry<String, ?> item : ((HashMap<String, ?>) fieldData).entrySet()) {
+            String key = item.getKey();
+            Object data = item.getValue();
 
-            if (!typeChecker.isElementDataPrimitive(data)) {
+            if (!typeChecker.isDataPrimitive(data) &&
+                    !typeChecker.isDataJson(data)) {
                 data = serializeHelper(data);
             }
             jsonObject.put(key, data);

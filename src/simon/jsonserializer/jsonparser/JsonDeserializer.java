@@ -31,18 +31,19 @@ public class JsonDeserializer {
             T instance = clazz.newInstance();
             List<FieldInformation> fieldInformationList = extractor.extractFieldInformations(instance);
             for (FieldInformation fieldInformation : extractor.extractFieldInformations(instance)) {
-                Object jsonData;
+                Object data;
                 if (fieldInformation.isOptional) {
-                    jsonData = toBeDeJsonified.opt(fieldInformation.name);
-                    if (jsonData == null) {
+                    data = toBeDeJsonified.opt(fieldInformation.name);
+                    if (data == null) {
                         continue;
                     }
                 }
                 else {
-                    jsonData = toBeDeJsonified.get(fieldInformation.name);
+                    data = toBeDeJsonified.get(fieldInformation.name);
                 }
 
                 // TODO: Add deserialization logic
+                
             }
 
             return instance;

@@ -3,19 +3,30 @@ package simon.jsonserializer.jsonparser.helpers;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TypeChecker {
 
-    public boolean isElementDataPrimitive(Object fieldData) {
+    public boolean isDataJson(Object fieldData) {
+        return isTypeJSONArray(fieldData.getClass()) ||
+                isTypeJSONObject(fieldData.getClass());
+    }
+
+    public boolean isDataPrimitive(Object fieldData) {
         return fieldData == null ||
                 isTypeString(fieldData.getClass()) ||
                 isTypeBoolean(fieldData.getClass()) ||
                 isTypeCharacter(fieldData.getClass()) ||
-                isTypeNumber(fieldData.getClass()) ||
-                isTypeJSONArray(fieldData.getClass()) ||
-                isTypeJSONObject(fieldData.getClass());
+                isTypeNumber(fieldData.getClass());
+    }
+
+    public boolean isTypeJSONObject(Class<?> clazz) {
+        return JSONObject.class.isAssignableFrom(clazz);
+    }
+
+    public boolean isTypeJSONArray(Class<?> clazz) {
+        return JSONArray.class.isAssignableFrom(clazz);
     }
 
     public boolean isTypeString(Class<?> clazz) {
@@ -66,24 +77,16 @@ public class TypeChecker {
                 clazz.isAssignableFrom(Double.TYPE);
     }
 
-    public boolean isTypeJSONObject(Class<?> clazz) {
-        return JSONObject.class.isAssignableFrom(clazz);
-    }
-
-    public boolean isTypeJSONArray(Class<?> clazz) {
-        return JSONArray.class.isAssignableFrom(clazz);
-    }
-
     public boolean isArray(Object fieldData) {
         return fieldData.getClass().isArray();
     }
 
-    public boolean isList(Object fieldData) {
-        return List.class.isAssignableFrom(fieldData.getClass());
+    public boolean isArrayList(Object fieldData) {
+        return ArrayList.class.isAssignableFrom(fieldData.getClass());
     }
 
-    public boolean isMap(Object fieldData) {
-        return Map.class.isAssignableFrom(fieldData.getClass());
+    public boolean isHashMap(Object fieldData) {
+        return HashMap.class.isAssignableFrom(fieldData.getClass());
     }
 
 }
