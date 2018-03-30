@@ -21,17 +21,17 @@ object TestData {
     val base_ex1 = Base(null, int2)
 
     val inner_ok1 = TestInner(int1.toLong(), str1)
-    val withInner_ok1 = TestClass(str1, str2, str3, inner_ok1)
+    val withInner_ok1 = TestWithInnerClass(str1, str2, str3, inner_ok1)
 
     val derived_ok1 = Derived(int1, int2, str1, bool1)
     val derivedDoubled_ok1 = DerivedDoubled(int1, int2, str1, bool1)
 
     val intsArray_ok1 = arrayOf(int1, int2, int3)
-    val intsList_ok1 = listOf(int1, int2, int3)
+    val intsList_ok1 = arrayListOf(int1, int2, int3)
     val intsMap_ok1 = hashMapOf(str1 to int1, str2 to int2, str3 to int3)
 
     val basesArray_ok1 = arrayOf(base_ok1, base_ok2)
-    val basesList_ok1 = listOf(base_ok1, base_ok2)
+    val basesList_ok1 = arrayListOf(base_ok1, base_ok2)
     val basesMap_ok1 = hashMapOf(str1 to base_ok1, str2 to base_ok2)
 
     val testArray_ok1 = TestArray(intsArray_ok1, basesArray_ok1)

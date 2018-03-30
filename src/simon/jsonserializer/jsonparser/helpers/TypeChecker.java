@@ -8,7 +8,8 @@ import java.util.HashMap;
 
 public class TypeChecker {
 
-    public boolean isDataJson(Object fieldData) {
+    //region Primitive
+    public boolean isDataPrimitiveJson(Object fieldData) {
         return isTypeJSONArray(fieldData.getClass()) ||
                 isTypeJSONObject(fieldData.getClass());
     }
@@ -20,7 +21,9 @@ public class TypeChecker {
                 isTypeCharacter(fieldData.getClass()) ||
                 isTypeNumber(fieldData.getClass());
     }
+    //endregion Primitive
 
+    //region Json
     public boolean isTypeJSONObject(Class<?> clazz) {
         return JSONObject.class.isAssignableFrom(clazz);
     }
@@ -28,7 +31,9 @@ public class TypeChecker {
     public boolean isTypeJSONArray(Class<?> clazz) {
         return JSONArray.class.isAssignableFrom(clazz);
     }
+    //endregion Json
 
+    //region String, Boolean, Char
     public boolean isTypeString(Class<?> clazz) {
         return clazz.isAssignableFrom(String.class);
     }
@@ -42,7 +47,9 @@ public class TypeChecker {
         return clazz.isAssignableFrom(Character.class) ||
                 clazz.isAssignableFrom(Character.TYPE);
     }
+    //endregion String, Boolean, Char
 
+    //region Number
     public boolean isTypeNumber(Class<?> clazz) {
         return Number.class.isAssignableFrom(clazz);
     }
@@ -76,7 +83,9 @@ public class TypeChecker {
         return clazz.isAssignableFrom(Double.class) ||
                 clazz.isAssignableFrom(Double.TYPE);
     }
+    //endregion Number
 
+    //region Iterable
     public boolean isArray(Object fieldData) {
         return fieldData.getClass().isArray();
     }
@@ -88,5 +97,6 @@ public class TypeChecker {
     public boolean isHashMap(Object fieldData) {
         return HashMap.class.isAssignableFrom(fieldData.getClass());
     }
+    //endregion Iterable
 
 }

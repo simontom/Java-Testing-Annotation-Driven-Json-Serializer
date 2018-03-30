@@ -13,7 +13,9 @@ import simon.jsonserializer.jsonparser.exceptions.FieldInformationExtractionExce
 
 public class FieldInformationExtractor {
 
-    public List<FieldInformation> extractFieldInformations(@NotNull Object object) throws FieldInformationExtractionException {
+    public List<FieldInformation> extractFieldInformations(@NotNull Object object)
+            throws FieldInformationExtractionException {
+
         List<FieldInformation> fieldsInformation = new ArrayList<>();
 
         try {
@@ -66,7 +68,7 @@ public class FieldInformationExtractor {
         // Get Is Element Optional
         boolean isOptional = jsonFieldAnnotation.optional();
 
-        // Created TypeConverter if possible
+        // Instantiate TypeConverter
         Class<? extends TypeConverter> typeConverterClass = jsonFieldAnnotation.typeConverter();
         TypeConverter typeConverter = typeConverterClass.newInstance();
 

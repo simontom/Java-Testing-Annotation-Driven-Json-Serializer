@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import simon.jsonserializer.dataobjects.Base;
 import simon.jsonserializer.dataobjects.Derived;
 import simon.jsonserializer.dataobjects.DerivedDoubled;
-import simon.jsonserializer.dataobjects.TestClass;
+import simon.jsonserializer.dataobjects.TestWithInnerClass;
 import simon.jsonserializer.dataobjects.TestInner;
 import simon.jsonserializer.jsonparser.JsonSerializer;
 import simon.jsonserializer.jsonparser.exceptions.JsonParserException;
@@ -16,14 +16,14 @@ import simon.jsonserializer.jsonparser.helpers.TypeChecker;
 public class Main {
 
     public static void main(String[] args) throws JsonParserException, JSONException {
-        //region TestClass Data
+        //region TestWithInnerClass Data
         TestInner inner = new TestInner(1234, "inner bar data");
-        TestClass withInner = new TestClass("foo data", "bar data", "baz data", inner);
+        TestWithInnerClass withInner = new TestWithInnerClass("foo data", "bar data", "baz data", inner);
 
         Base base = new Base(42, 24);
         Derived derived = new Derived(11, 22, "bar data", true);
         DerivedDoubled derivedDoubled = new DerivedDoubled(11, 22, "bar data", true);
-        //endregion TestClass Data
+        //endregion TestWithInnerClass Data
 
         //region Serializer
         FieldInformationExtractor fieldInformationExtractor = new FieldInformationExtractor();
@@ -32,7 +32,7 @@ public class Main {
         JSONObject jsonObject;
         //endregion Serializer
 
-        //region Serialization TestClass
+        //region Serialization TestWithInnerClass
         System.out.println("Inner");
         jsonObject = jsonSerializer.serialize(inner);
         System.out.println(jsonObject.toString(2));
@@ -52,7 +52,7 @@ public class Main {
         System.out.println("\n\nDerived Doubled");
         jsonObject = jsonSerializer.serialize(derivedDoubled);
         System.out.println(jsonObject.toString(2));
-        //endregion Serialization TestClass
+        //endregion Serialization TestWithInnerClass
     }
 
 }

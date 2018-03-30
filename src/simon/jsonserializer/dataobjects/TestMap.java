@@ -1,20 +1,20 @@
 package simon.jsonserializer.dataobjects;
 
-import java.util.Map;
+import java.util.HashMap;
 
 import simon.jsonserializer.jsonparser.JsonField;
 
 public class TestMap {
     @JsonField
-    private Map<String, Integer> mapIntegers;
+    private HashMap<String, Integer> mapIntegers;
 
     @JsonField (optional = false)
-    private Map<String, Base> mapBases;
+    private HashMap<String, Base> mapBases;
 
     public TestMap() {
     }
 
-    public TestMap(Map<String, Integer> mapIntegers, Map<String, Base> mapBases) {
+    public TestMap(HashMap<String, Integer> mapIntegers, HashMap<String, Base> mapBases) {
         this.mapIntegers = mapIntegers;
         this.mapBases = mapBases;
     }

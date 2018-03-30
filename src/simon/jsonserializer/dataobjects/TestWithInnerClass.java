@@ -1,9 +1,9 @@
 package simon.jsonserializer.dataobjects;
 
-import simon.jsonserializer.IntegerToStringTypeConverter;
+import simon.jsonserializer.IntegerStringTypeConverter;
 import simon.jsonserializer.jsonparser.JsonField;
 
-public class TestClass {
+public class TestWithInnerClass {
     //region Not Annotated for serialization
     private String foo;
     //endregion Not Annotated for serialization
@@ -18,7 +18,7 @@ public class TestClass {
     //region Number
     @JsonField (name = "test_number")
     private int number = 42;
-    @JsonField (name = "__converted__", typeConverter = IntegerToStringTypeConverter.class)
+    @JsonField (name = "__converted__", typeConverter = IntegerStringTypeConverter.class)
     private Integer integerAsObject = 123;
     @JsonField
     private Long longAsObject = 1234L;
@@ -37,10 +37,10 @@ public class TestClass {
     TestInner testInnerNull;
     //endregion Inner Object
 
-    public TestClass() {
+    public TestWithInnerClass() {
     }
 
-    public TestClass(String foo, String bar, String baz, TestInner testInner) {
+    public TestWithInnerClass(String foo, String bar, String baz, TestInner testInner) {
         this.foo = foo;
         this.bar = bar;
         this.baz = baz;

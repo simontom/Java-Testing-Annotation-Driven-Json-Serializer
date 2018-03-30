@@ -1,20 +1,20 @@
 package simon.jsonserializer.dataobjects;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import simon.jsonserializer.jsonparser.JsonField;
 
 public class TestList {
     @JsonField
-    private List<Integer> listIntegers;
+    private ArrayList<Integer> listIntegers;
 
     @JsonField
-    private List<Base> listBases;
+    private ArrayList<Base> listBases;
 
     public TestList() {
     }
 
-    public TestList(List<Integer> listIntegers, List<Base> listBases) {
+    public TestList(ArrayList<Integer> listIntegers, ArrayList<Base> listBases) {
         this.listIntegers = listIntegers;
         this.listBases = listBases;
     }

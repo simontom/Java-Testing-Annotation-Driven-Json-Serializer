@@ -1,21 +1,21 @@
 package simon.jsonserializer.jsonparser;
 
 public interface
-TypeConverter<OUT, IN> {
-    OUT convertSerialization(IN object);
-    IN convertDeserialization(OUT object);
+TypeConverter<TJson, TObject> {
+    TJson onSerialization(TObject object);
+
+    TObject onDeserialization(TJson object);
 
 
     class IDENTITY implements TypeConverter<Object, Object> {
         @Override
-        public Object convertSerialization(Object object) {
+        public Object onSerialization(Object object) {
             return object;
         }
 
         @Override
-        public Object convertDeserialization(Object object) {
+        public Object onDeserialization(Object object) {
             return object;
         }
     }
-
 }

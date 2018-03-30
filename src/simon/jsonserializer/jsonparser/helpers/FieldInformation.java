@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import simon.jsonserializer.jsonparser.TypeConverter;
 
 public class FieldInformation {
-    private final Field field;
+    public final Field field;
     public final String name;
     public Object data;
     public final boolean isOptional;

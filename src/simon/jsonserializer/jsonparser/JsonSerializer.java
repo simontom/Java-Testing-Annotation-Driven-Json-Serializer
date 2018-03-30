@@ -48,7 +48,7 @@ public class JsonSerializer {
                     throw new IllegalArgumentException(message);
                 }
 
-                processFieldInformation(fieldInformation);
+                processField(fieldInformation);
                 jsonObject.put(fieldInformation.name, fieldInformation.data);
             }
 
@@ -59,10 +59,10 @@ public class JsonSerializer {
         }
     }
 
-    private void processFieldInformation(FieldInformation fieldInformation)
+    private void processField(FieldInformation fieldInformation)
             throws JsonParserException, JSONException {
 
-        fieldInformation.data = fieldInformation.typeConverter.convertSerialization(fieldInformation.data);
+        fieldInformation.data = fieldInformation.typeConverter.onSerialization(fieldInformation.data);
 
         if (typeChecker.isArray(fieldInformation.data)) {
             fieldInformation.data = serializeArray(fieldInformation.data);
@@ -74,7 +74,7 @@ public class JsonSerializer {
             fieldInformation.data = serializeHashMap(fieldInformation.data);
         }
         else if (!typeChecker.isDataPrimitive(fieldInformation.data) &&
-                !typeChecker.isDataJson(fieldInformation.data)) {
+                !typeChecker.isDataPrimitiveJson(fieldInformation.data)) {
             fieldInformation.data = serializeHelper(fieldInformation.data);
         }
     }
@@ -84,7 +84,7 @@ public class JsonSerializer {
 
         for (Object item : ((Object[]) fieldData)) {
             if (!typeChecker.isDataPrimitive(item) &&
-                    !typeChecker.isDataJson(item)) {
+                    !typeChecker.isDataPrimitiveJson(item)) {
                 item = serializeHelper(item);
             }
             jsonArray.put(item);
@@ -98,7 +98,7 @@ public class JsonSerializer {
 
         for (Object item : ((List<?>) fieldData)) {
             if (!typeChecker.isDataPrimitive(item) &&
-                    !typeChecker.isDataJson(item)) {
+                    !typeChecker.isDataPrimitiveJson(item)) {
                 item = serializeHelper(item);
             }
             jsonArray.put(item);
@@ -115,7 +115,7 @@ public class JsonSerializer {
             Object data = item.getValue();
 
             if (!typeChecker.isDataPrimitive(data) &&
-                    !typeChecker.isDataJson(data)) {
+                    !typeChecker.isDataPrimitiveJson(data)) {
                 data = serializeHelper(data);
             }
             jsonObject.put(key, data);
