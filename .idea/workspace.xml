@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3955b738-6980-4dbb-b1cc-210de92e78c7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestCharString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/IntegerStringTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/IntegerStringTypeConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/Base.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestInner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestInner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestWithInnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/dataobjects/TestWithInner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/TypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/TypeConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/exceptions/JsonParserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/exceptions/JsonParserException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/tests/JsonParserTestBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/tests/JsonParserTestBase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/tests/TestData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/tests/TestData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/tests/deserialization/JsonDeserializationBasicTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/tests/deserialization/JsonDeserializationBasicTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationBasicTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/simon/tests/serialization/JsonSerializationBasicTest.kt" afterDir="false" />
-    </list>
+    <list default="true" id="3955b738-6980-4dbb-b1cc-210de92e78c7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,8 +15,8 @@
       <file leaf-file-name="JsonSerializer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="401">
+              <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
               <folding>
                 <element signature="method#JsonSerializer#0;class#JsonSerializer#0" />
                 <element signature="method#serialize#0;class#JsonSerializer#0" />
@@ -44,8 +28,8 @@
       <file leaf-file-name="JsonDeserializer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonDeserializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="41" column="78" selection-start-line="41" selection-start-column="78" selection-end-line="41" selection-end-column="78" />
+            <state relative-caret-position="320">
+              <caret line="42" column="69" lean-forward="true" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -933,17 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="method#JsonSerializer#0;class#JsonSerializer#0" />
-            <element signature="method#serialize#0;class#JsonSerializer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -994,10 +967,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+          <folding>
+            <element signature="method#JsonSerializer#0;class#JsonSerializer#0" />
+            <element signature="method#serialize#0;class#JsonSerializer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/simon/jsonserializer/jsonparser/JsonDeserializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="41" column="78" selection-start-line="41" selection-start-column="78" selection-end-line="41" selection-end-column="78" />
+        <state relative-caret-position="320">
+          <caret line="42" column="69" lean-forward="true" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
