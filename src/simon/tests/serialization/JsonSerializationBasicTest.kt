@@ -15,13 +15,18 @@ class JsonSerializationBasicTest : JsonParserTestBase() {
         serializeAndCompare(TestData.base_ok1_json, TestData.base_ok1)
     }
 
+    @Test
+    fun b_serialize_CharStringClass() {
+        serializeAndCompare(TestData.charstring_ok1_json, TestData.charstring_ok1)
+    }
+
     @Test(expected = JsonParserException::class)
-    fun b_serialize_BaseClassThrowsException() {
+    fun c_serialize_BaseClassThrowsException() {
         serializeAndCompare(null, TestData.base_ex1)
     }
 
     @Test
-    fun c_serialize_WithInnerClass() {
+    fun d_serialize_WithInnerClass() {
         serializeAndCompare(TestData.withInner_ok1_json, TestData.withInner_ok1)
     }
 

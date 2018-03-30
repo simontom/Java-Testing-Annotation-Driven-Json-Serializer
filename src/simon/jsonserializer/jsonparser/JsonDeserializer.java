@@ -30,19 +30,17 @@ public class JsonDeserializer {
         try {
             T instance = clazz.newInstance();
             for (FieldInformation fieldInformation : extractor.extractFieldInformations(instance)) {
-                Object data;
-                if (fieldInformation.isOptional) {
-                    data = toBeDeJsonified.opt(fieldInformation.name);
-                    if (data == null) {
+                Object data = toBeDeJsonified.opt(fieldInformation.name);
+                if (data == null) {
+                    if (fieldInformation.isOptional) {
                         continue;
                     }
-                }
-                else {
-                    data = toBeDeJsonified.get(fieldInformation.name);
+                    String message = String.format("Mandatory Json Field '%s' is NULL", fieldInformation.name);
+                    throw new JsonParserException(message);
                 }
 
-                // TODO: Add deserialization logic
-                processField(fieldInformation, instance, data);
+                data = fieldInformation.typeConverter.onDeserialization(data);
+                processField(fieldInformation.field, instance, data);
             }
 
             return instance;
@@ -52,33 +50,32 @@ public class JsonDeserializer {
         }
     }
 
-    private void processField(FieldInformation fieldInformation, Object instance, Object data)
-            throws IllegalAccessException {
-
-        int karel = 1;
-
-        data = fieldInformation.typeConverter.onDeserialization(data);
+    private void processField(Field field, Object instance, Object data)
+            throws IllegalAccessException, JsonParserException {
 
         if (typeChecker.isTypeString(data.getClass())) {
-            fieldInformation.field.set(instance, (String)data);
+            processText(field, instance, (String) data);
+        }
+        else if (typeChecker.isTypeBoolean(data.getClass())) {
+            field.set(instance, data);
         }
         else if (typeChecker.isTypeNumber(data.getClass())) {
-            processNumber(fieldInformation.field, instance, (Number) data);
+            processNumber(field, instance, (Number) data);
         }
+    }
 
+    private void processText(Field field, Object instance, String text)
+            throws IllegalAccessException, JsonParserException {
 
-        if (typeChecker.isArray(fieldInformation.data)) {
-//            fieldInformation.data = serializeArray(fieldInformation.data);
+        Class<?> fieldClass = field.getType();
+        if (typeChecker.isTypeString(fieldClass)) {
+            field.set(instance, text);
         }
-        else if (typeChecker.isArrayList(fieldInformation.data)) {
-//            fieldInformation.data = serializeArrayList(fieldInformation.data);
-        }
-        else if (typeChecker.isHashMap(fieldInformation.data)) {
-//            fieldInformation.data = serializeHashMap(fieldInformation.data);
-        }
-        else if (!typeChecker.isDataPrimitive(fieldInformation.data) &&
-                !typeChecker.isDataPrimitiveJson(fieldInformation.data)) {
-//            fieldInformation.data = serializeHelper(fieldInformation.data);
+        else if (typeChecker.isTypeCharacter(fieldClass)) {
+            if (text.length() != 1) {
+                throw new JsonParserException("Cannot be casted to Character");
+            }
+            field.set(instance, text.charAt(0));
         }
     }
 

@@ -1,5 +1,7 @@
 package simon.jsonserializer.dataobjects;
 
+import java.util.Objects;
+
 import simon.jsonserializer.jsonparser.JsonField;
 
 public class TestInner {
@@ -20,5 +22,25 @@ public class TestInner {
     public TestInner(long foo, String bar) {
         this.foo = foo;
         this.bar = bar;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof TestInner)) {
+            return false;
+        }
+        TestInner testInner = (TestInner) o;
+        return foo == testInner.foo &&
+                bool == testInner.bool &&
+                Objects.equals(bar, testInner.bar) &&
+                Objects.equals(boolObject, testInner.boolObject);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bar, foo, bool, boolObject);
     }
 }

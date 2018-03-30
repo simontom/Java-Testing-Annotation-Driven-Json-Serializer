@@ -44,10 +44,11 @@ public class JsonSerializer {
                     if (fieldInformation.isOptional) {
                         continue;
                     }
-                    String message = String.format("Mandatory Json Field '%s' is NULL", fieldInformation.name);
-                    throw new IllegalArgumentException(message);
+                    String message = String.format("Mandatory Field '%s' is NULL", fieldInformation.name);
+                    throw new JsonParserException(message);
                 }
 
+                fieldInformation.data = fieldInformation.typeConverter.onSerialization(fieldInformation.data);
                 processField(fieldInformation);
                 jsonObject.put(fieldInformation.name, fieldInformation.data);
             }
@@ -61,8 +62,6 @@ public class JsonSerializer {
 
     private void processField(FieldInformation fieldInformation)
             throws JsonParserException, JSONException {
-
-        fieldInformation.data = fieldInformation.typeConverter.onSerialization(fieldInformation.data);
 
         if (typeChecker.isArray(fieldInformation.data)) {
             fieldInformation.data = serializeArray(fieldInformation.data);

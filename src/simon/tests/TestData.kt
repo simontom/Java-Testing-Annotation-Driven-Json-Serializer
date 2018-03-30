@@ -20,8 +20,10 @@ object TestData {
     val base_ok2 = Base(int3, int4)
     val base_ex1 = Base(null, int2)
 
+    val charstring_ok1 = TestCharString("string", 'c', 'o')
+
     val inner_ok1 = TestInner(int1.toLong(), str1)
-    val withInner_ok1 = TestWithInnerClass(str1, str2, str3, inner_ok1)
+    val withInner_ok1 = TestWithInner(null, str2, str3, inner_ok1)
 
     val derived_ok1 = Derived(int1, int2, str1, bool1)
     val derivedDoubled_ok1 = DerivedDoubled(int1, int2, str1, bool1)
@@ -45,6 +47,13 @@ object TestData {
     {
         "_mandatory_and_converted_": "$int1",
 	    "test_number": $int2
+    }"""
+
+    const val charstring_ok1_json = """
+    {
+        "char_object": "o",
+        "char_primitive": "c",
+        "mandatory": "string"
     }"""
 
     const val base_ex1_json = """
