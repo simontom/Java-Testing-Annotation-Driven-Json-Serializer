@@ -2,7 +2,7 @@ package simon.tests.dataobjects;
 
 import java.util.Objects;
 
-import simon.jsonserializer.IntegerStringTypeConverter;
+import simon.tests.typeconverters.IntegerStringTypeConverter;
 import simon.jsonserializer.jsonparser.JsonField;
 
 public class Base {

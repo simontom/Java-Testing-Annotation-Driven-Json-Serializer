@@ -1,4 +1,4 @@
-package simon.jsonserializer;
+package simon.tests.typeconverters;
 
 import org.jetbrains.annotations.NotNull;
 
