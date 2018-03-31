@@ -16,7 +16,7 @@ class JsonSerializationIterableTest : JsonParserTestBase() {
     }
 
     @Test
-    fun b_serialize_ClassWithList() {
+    fun b_serialize_ClassWithArrayList() {
         serializeAndCompare(TestData.testList_ok1_json, TestData.testList_ok1)
     }
 
