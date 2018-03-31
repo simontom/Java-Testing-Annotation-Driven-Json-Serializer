@@ -3,23 +3,28 @@ package simon.jsonserializer.jsonparser.helpers;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TypeChecker {
 
     //region Composed Checking
-    public boolean isDataPrimitiveJson(Object fieldData) {
-        return isTypeJSONArray(fieldData.getClass()) ||
-                isTypeJSONObject(fieldData.getClass());
+    public boolean isTypePrimitiveJson(Class<?> clazz) {
+        return isTypeJSONArray(clazz) ||
+                isTypeJSONObject(clazz);
+    }
+
+    public boolean isTypePrimitive(Class<?> clazz) {
+        return isTypeString(clazz) ||
+                isTypeBoolean(clazz) ||
+                isTypeCharacter(clazz) ||
+                isTypeNumber(clazz);
     }
 
     public boolean isDataPrimitive(Object fieldData) {
         return fieldData == null ||
-                isTypeString(fieldData.getClass()) ||
-                isTypeBoolean(fieldData.getClass()) ||
-                isTypeCharacter(fieldData.getClass()) ||
-                isTypeNumber(fieldData.getClass());
+                isTypePrimitive(fieldData.getClass());
     }
 
     public boolean isTypeIterable(Class<?> clazz) {
@@ -102,6 +107,10 @@ public class TypeChecker {
 
     public boolean isTypeHashMap(Class<?> clazz) {
         return HashMap.class.isAssignableFrom(clazz);
+    }
+
+    public Class<?> getIterableElementClass(Field field) {
+        return null;
     }
     //endregion Iterable
 
