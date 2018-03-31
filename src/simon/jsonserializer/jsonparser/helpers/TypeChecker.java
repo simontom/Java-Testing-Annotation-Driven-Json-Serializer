@@ -19,7 +19,7 @@ public class TypeChecker {
     public boolean isTypePrimitive(Class<?> clazz) {
         return isTypeString(clazz) ||
                 isTypeBoolean(clazz) ||
-                isTypeCharacter(clazz) ||
+                isTypeChar(clazz) ||
                 isTypeNumber(clazz);
     }
 
@@ -50,7 +50,7 @@ public class TypeChecker {
         return clazz.isAssignableFrom(String.class);
     }
 
-    public boolean isTypeCharacter(Class<?> clazz) {
+    public boolean isTypeChar(Class<?> clazz) {
         return clazz.isAssignableFrom(Character.class) ||
                 clazz.isAssignableFrom(Character.TYPE);
     }
@@ -108,6 +108,19 @@ public class TypeChecker {
 
     public boolean isTypeHashMap(Class<?> clazz) {
         return HashMap.class.isAssignableFrom(clazz);
+    }
+
+    public Class<?> getIterableItemClass(Field field) {
+        Class<?> clazz = field.getType().getComponentType();
+        if (clazz != null) {
+            return clazz;
+        }
+
+        ParameterizedType parameterizedType = (ParameterizedType) field.getGenericType();
+        if (parameterizedType.getActualTypeArguments().length == 1) {
+            return (Class<?>) parameterizedType.getActualTypeArguments()[0];
+        }
+        return (Class<?>) parameterizedType.getActualTypeArguments()[1];
     }
 
     public Class<?> getArrayItemClass(Field field) {

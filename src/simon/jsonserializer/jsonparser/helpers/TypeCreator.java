@@ -20,7 +20,7 @@ public class TypeCreator {
     }
 
     public <T> HashMap<String, T> createHashMapOfType(Class<T> type, int capacity) {
-        return new HashMap<String, T>(capacity);
+        return new HashMap<>(capacity);
     }
     //endregion Iterable Creation
 
