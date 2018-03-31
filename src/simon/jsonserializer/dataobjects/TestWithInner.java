@@ -49,6 +49,10 @@ public class TestWithInner {
         this.testInner = testInner;
     }
 
+    public TestInner getTestInner() {
+        return testInner;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -66,13 +70,13 @@ public class TestWithInner {
                 Objects.equals(longAsObject, that.longAsObject) &&
                 Objects.equals(floatAsObject, that.floatAsObject) &&
                 Objects.equals(doubleAsObject, that.doubleAsObject) &&
-                Objects.equals(testInner, that.testInner) &&
+                Objects.equals(getTestInner(), that.getTestInner()) &&
                 Objects.equals(testInnerNotNull, that.testInnerNotNull) &&
                 Objects.equals(testInnerNull, that.testInnerNull);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(foo, bar, baz, number, integerAsObject, longAsObject, floatAsObject, doubleAsObject, testInner, testInnerNotNull, testInnerNull);
+        return Objects.hash(foo, bar, baz, number, integerAsObject, longAsObject, floatAsObject, doubleAsObject, getTestInner(), testInnerNotNull, testInnerNull);
     }
 }

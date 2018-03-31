@@ -1,4 +1,4 @@
-package simon.tests.serialization
+package simon.tests.deserialization
 
 import org.junit.FixMethodOrder
 import org.junit.Test
@@ -7,16 +7,16 @@ import simon.tests.JsonParserTestBase
 import simon.tests.TestData
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class JsonSerializationDerivedTest : JsonParserTestBase() {
+class JsonDeserializationDerivedTest : JsonParserTestBase() {
 
     @Test
-    fun a_serialize_DerivedClass() {
-        serializeAndCompare(TestData.derived_ok1_json, TestData.derived_ok1)
+    fun a_deserialize_DerivedClass() {
+        deserializeAndCompare(TestData.derived_ok1, TestData.derived_ok1_json)
     }
 
     @Test
-    fun b_serialize_DerivedDoubledClass() {
-        serializeAndCompare(TestData.derivedDoubled_ok1_json, TestData.derivedDoubled_ok1)
+    fun b_deserialize_DerivedDoubledClass() {
+        deserializeAndCompare(TestData.derivedDoubled_ok1, TestData.derivedDoubled_ok1_json)
     }
 
 }
