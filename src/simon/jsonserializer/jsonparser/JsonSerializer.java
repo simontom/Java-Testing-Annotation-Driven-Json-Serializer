@@ -63,6 +63,11 @@ public class JsonSerializer {
     private void processField(FieldInformation fieldInformation)
             throws JsonParserException, JSONException {
 
+        // TODO: Rewrite to using Serializer interface and Map<Class, Serializer>
+//        Map<Class, ISerializer> serializers;
+//        Class fieldDataClass = fieldInformation.data.getClass();
+//        fieldInformation.data = serializers.get(fieldDataClass).serialize(fieldInformation.data);
+
         if (typeChecker.isTypeArray(fieldInformation.data.getClass())) {
             fieldInformation.data = serializeArray(fieldInformation.data);
         }
