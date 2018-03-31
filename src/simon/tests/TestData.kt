@@ -1,6 +1,6 @@
 package simon.tests
 
-import simon.jsonserializer.dataobjects.*
+import simon.tests.dataobjects.*
 
 object TestData {
     //region Instance Data
