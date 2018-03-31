@@ -33,7 +33,7 @@ public class JsonDeserializer {
 
     private <T> T deserializeHelper(JSONObject toBeDeJsonified, Class<T> clazz) throws JsonParserException {
         try {
-            T instance = clazz.newInstance();
+            T instance = typeCreator.createInstanceFor(clazz);
             for (FieldInformation fieldInformation : extractor.extractFieldInformations(instance)) {
                 Object dataFromJson = toBeDeJsonified.opt(fieldInformation.name);
                 if (dataFromJson == null) {

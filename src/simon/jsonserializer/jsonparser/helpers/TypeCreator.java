@@ -6,6 +6,10 @@ import java.util.HashMap;
 
 public class TypeCreator {
 
+    public <T> T createInstanceFor(Class<T> clazz) throws IllegalAccessException, InstantiationException {
+        return clazz.newInstance();
+    }
+
     //region Iterable Creation
     public <T> T[] createArrayOfType(Class<T> componentType, int capacity) {
         return (T[]) Array.newInstance(componentType, capacity);
