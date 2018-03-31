@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -109,8 +110,18 @@ public class TypeChecker {
         return HashMap.class.isAssignableFrom(clazz);
     }
 
-    public Class<?> getIterableElementClass(Field field) {
-        return null;
+    public Class<?> getArrayItemClass(Field field) {
+        return field.getType().getComponentType();
+    }
+
+    public Class<?> getArrayListItemClass(Field field) {
+        ParameterizedType parameterizedType = (ParameterizedType) field.getGenericType();
+        return (Class<?>) parameterizedType.getActualTypeArguments()[0];
+    }
+
+    public Class<?> getHashMapItemClass(Field field) {
+        ParameterizedType parameterizedType = (ParameterizedType) field.getGenericType();
+        return (Class<?>) parameterizedType.getActualTypeArguments()[1];
     }
     //endregion Iterable
 
