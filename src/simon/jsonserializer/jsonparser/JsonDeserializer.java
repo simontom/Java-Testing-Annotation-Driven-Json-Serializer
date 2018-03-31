@@ -1,6 +1,7 @@
 package simon.jsonserializer.jsonparser;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
@@ -58,54 +59,82 @@ public class JsonDeserializer {
     private void processField(Field field, Object instance, Object dataFromJson)
             throws IllegalAccessException, JsonParserException {
 
-        if (typeChecker.isTypeString(dataFromJson.getClass())) {
-            processText(field, instance, (String) dataFromJson);
+        Class<?> dataFromJsonClass = dataFromJson.getClass();
+        Class<?> fieldClass = field.getType();
+
+        if (typeChecker.isTypeString(dataFromJsonClass)) {
+            Object dataForField = createProcessedText(fieldClass, (String) dataFromJson);
+            field.set(instance, dataForField);
         }
-        else if (typeChecker.isTypeBoolean(dataFromJson.getClass())) {
+        else if (typeChecker.isTypeBoolean(dataFromJsonClass)) {
             field.set(instance, dataFromJson);
         }
-        else if (typeChecker.isTypeNumber(dataFromJson.getClass())) {
-            processNumber(field, instance, (Number) dataFromJson);
+        else if (typeChecker.isTypeNumber(dataFromJsonClass)) {
+            Number dataForField = createProcessedNumber(fieldClass, (Number) dataFromJson);
+            field.set(instance, dataForField);
+        }
+        else if (typeChecker.isTypeJSONObject(dataFromJsonClass)) {
+            processJsonObject(field, instance, (JSONObject) dataFromJson);
+        }
+        else if (typeChecker.isTypeJSONArray(dataFromJsonClass)) {
+            processJsonArray(field, instance, (JSONArray) dataFromJson);
         }
     }
 
-    private void processText(Field field, Object instance, String dataFromJson)
-            throws IllegalAccessException, JsonParserException {
-
-        Class<?> fieldClass = field.getType();
+    private Object createProcessedText(Class<?> fieldClass, String dataFromJson) throws JsonParserException {
         if (typeChecker.isTypeString(fieldClass)) {
-            field.set(instance, dataFromJson);
+            return dataFromJson;
         }
-        else if (typeChecker.isTypeCharacter(fieldClass)) {
-            if (dataFromJson.length() != 1) {
-                throw new JsonParserException("Cannot be casted to Character");
-            }
-            field.set(instance, dataFromJson.charAt(0));
+        else if (typeChecker.isTypeCharacter(fieldClass) && (dataFromJson.length() == 1)) {
+            return dataFromJson.charAt(0);
         }
+
+        throw new JsonParserException("Cannot be casted to Character");
     }
 
-    private void processNumber(Field field, Object instance, Number dataFromJson)
-            throws IllegalAccessException {
-
-        Class<?> fieldClass = field.getType();
-
+    private Number createProcessedNumber(Class<?> fieldClass, Number dataFromJson) throws JsonParserException {
         if (typeChecker.isTypeByte(fieldClass)) {
-            field.set(instance, dataFromJson.byteValue());
+            return dataFromJson.byteValue();
         }
         else if (typeChecker.isTypeShort(fieldClass)) {
-            field.set(instance, dataFromJson.shortValue());
+            return dataFromJson.shortValue();
         }
         else if (typeChecker.isTypeInteger(fieldClass)) {
-            field.set(instance, dataFromJson.intValue());
+            return dataFromJson.intValue();
         }
         else if (typeChecker.isTypeLong(fieldClass)) {
-            field.set(instance, dataFromJson.longValue());
+            return dataFromJson.longValue();
         }
         else if (typeChecker.isTypeFloat(fieldClass)) {
-            field.set(instance, dataFromJson.floatValue());
+            return dataFromJson.floatValue();
         }
         else if (typeChecker.isTypeDouble(fieldClass)) {
-            field.set(instance, dataFromJson.doubleValue());
+            return dataFromJson.doubleValue();
+        }
+
+        throw new JsonParserException("Unknown Number type");
+    }
+
+    private void processJsonObject(Field field, Object instance, JSONObject jsonObject)
+            throws JsonParserException, IllegalAccessException {
+
+        Class<?> fieldClass = field.getType();
+        if (typeChecker.isTypeHashMap(fieldClass)) {
+            int karel = 1;
+        }
+        else if (!typeChecker.isTypePrimitive(fieldClass)) {
+            Object deserialized = deserializeHelper(jsonObject, fieldClass);
+            field.set(instance, deserialized);
+        }
+    }
+
+    private void processJsonArray(Field field, Object instance, JSONArray jsonArray) {
+        Class<?> fieldClass = field.getType();
+        if (typeChecker.isTypeArray(fieldClass)) {
+            int karel = 1;
+        }
+        else if (typeChecker.isTypeArrayList(fieldClass)) {
+            int karel = 1;
         }
     }
 
