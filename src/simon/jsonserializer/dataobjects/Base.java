@@ -20,6 +20,14 @@ public class Base {
         this.number = number;
     }
 
+    public Integer getIntegerAsObject() {
+        return integerAsObject;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -29,12 +37,12 @@ public class Base {
             return false;
         }
         Base base = (Base) o;
-        return number == base.number &&
-                Objects.equals(integerAsObject, base.integerAsObject);
+        return getNumber() == base.getNumber() &&
+                Objects.equals(getIntegerAsObject(), base.getIntegerAsObject());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(integerAsObject, number);
+        return Objects.hash(getIntegerAsObject(), getNumber());
     }
 }
