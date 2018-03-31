@@ -82,7 +82,7 @@ public class JsonSerializer {
         JSONArray jsonArray = new JSONArray();
 
         for (Object item : ((Object[]) fieldData)) {
-            if (!typeChecker.isDataPrimitive(item.getClass()) &&
+            if (!typeChecker.isDataPrimitive(item) &&
                     !typeChecker.isTypePrimitiveJson(item.getClass())) {
                 item = serializeHelper(item);
             }
@@ -96,7 +96,7 @@ public class JsonSerializer {
         JSONArray jsonArray = new JSONArray();
 
         for (Object item : ((List<?>) fieldData)) {
-            if (!typeChecker.isDataPrimitive(item.getClass()) &&
+            if (!typeChecker.isDataPrimitive(item) &&
                     !typeChecker.isTypePrimitiveJson(item.getClass())) {
                 item = serializeHelper(item);
             }
@@ -113,7 +113,7 @@ public class JsonSerializer {
             String key = item.getKey();
             Object data = item.getValue();
 
-            if (!typeChecker.isDataPrimitive(data.getClass()) &&
+            if (!typeChecker.isDataPrimitive(data) &&
                     !typeChecker.isTypePrimitiveJson(data.getClass())) {
                 data = serializeHelper(data);
             }
