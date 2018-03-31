@@ -150,5 +150,14 @@ object TestData {
             }
         }
     }"""
+
+    const val testMap_ex1_json = """
+    {
+        "mapIntegers": {
+            "$str3": $int3,
+            "$str1": $int1,
+            "$str2": $int2
+        }
+    }"""
     //endregion Serialized to Json
 }
