@@ -5,7 +5,8 @@ import org.json.JSONObject;
 
 import simon.jsonserializer.jsonparser.exceptions.JsonParserException;
 import simon.jsonserializer.jsonparser.helpers.FieldInformationExtractor;
-import simon.jsonserializer.jsonparser.helpers.TypeHelper;
+import simon.jsonserializer.jsonparser.helpers.TypeChecker;
+import simon.jsonserializer.jsonparser.helpers.TypeCreator;
 
 public class JsonParser {
     private final JsonSerializer serializer;
@@ -13,14 +14,17 @@ public class JsonParser {
 
     public static JsonParser create() {
         FieldInformationExtractor fieldInformationExtractor = new FieldInformationExtractor();
-        TypeHelper typeHelper = new TypeHelper();
+        TypeChecker typeChecker = new TypeChecker();
+        TypeCreator typeCreator = new TypeCreator();
 
-        return new JsonParser(fieldInformationExtractor, typeHelper);
+        return new JsonParser(fieldInformationExtractor, typeChecker, typeCreator);
     }
 
-    private JsonParser(FieldInformationExtractor fieldInformationExtractor, TypeHelper typeHelper) {
-        serializer = new JsonSerializer(fieldInformationExtractor, typeHelper);
-        deserializer = new JsonDeserializer(fieldInformationExtractor, typeHelper);
+    private JsonParser(FieldInformationExtractor fieldInformationExtractor,
+                       TypeChecker typeChecker, TypeCreator typeCreator) {
+
+        serializer = new JsonSerializer(fieldInformationExtractor, typeChecker);
+        deserializer = new JsonDeserializer(fieldInformationExtractor, typeChecker, typeCreator);
     }
 
     public JSONObject toJson(@NotNull Object toBeJsonified) throws JsonParserException {

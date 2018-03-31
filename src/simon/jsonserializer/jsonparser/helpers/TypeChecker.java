@@ -3,11 +3,10 @@ package simon.jsonserializer.jsonparser.helpers;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TypeHelper {
+public class TypeChecker {
 
     //region Composed Checking
     public boolean isDataPrimitiveJson(Object fieldData) {
@@ -30,7 +29,7 @@ public class TypeHelper {
     }
     //endregion Composed Checking
 
-    //region Json Checking
+    //region Json
     public boolean isTypeJSONObject(Class<?> clazz) {
         return JSONObject.class.isAssignableFrom(clazz);
     }
@@ -38,7 +37,7 @@ public class TypeHelper {
     public boolean isTypeJSONArray(Class<?> clazz) {
         return JSONArray.class.isAssignableFrom(clazz);
     }
-    //endregion Json Checking
+    //endregion Json
 
     //region String, Boolean, Character
     public boolean isTypeString(Class<?> clazz) {
@@ -56,7 +55,7 @@ public class TypeHelper {
     }
     //endregion String, Boolean, Character
 
-    //region Number Checking
+    //region Number
     public boolean isTypeNumber(Class<?> clazz) {
         return Number.class.isAssignableFrom(clazz);
     }
@@ -90,9 +89,9 @@ public class TypeHelper {
         return clazz.isAssignableFrom(Double.class) ||
                 clazz.isAssignableFrom(Double.TYPE);
     }
-    //endregion Number Checking
+    //endregion Number
 
-    //region Iterable Checking
+    //region Iterable
     public boolean isTypeArray(Class<?> clazz) {
         return clazz.isArray();
     }
@@ -104,20 +103,6 @@ public class TypeHelper {
     public boolean isTypeHashMap(Class<?> clazz) {
         return HashMap.class.isAssignableFrom(clazz);
     }
-    //endregion Iterable Checking
-
-    //region Iterable Creation
-    public <T> T[] createArrayOfType(Class<T> componentType, int capacity) {
-        return (T[]) Array.newInstance(componentType, capacity);
-    }
-
-    public <T> ArrayList<T> createArrayListOfType(Class<T> type, int capacity) {
-        return new ArrayList<T>(capacity);
-    }
-
-    public <T> HashMap<String, T> createHashMapOfType(Class<T> type, int capacity) {
-        return new HashMap<String, T>(capacity);
-    }
-    //endregion Iterable Creation
+    //endregion Iterable
 
 }

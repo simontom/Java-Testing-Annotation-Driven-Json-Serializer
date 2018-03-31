@@ -8,17 +8,22 @@ import java.lang.reflect.Field;
 import simon.jsonserializer.jsonparser.exceptions.JsonParserException;
 import simon.jsonserializer.jsonparser.helpers.FieldInformation;
 import simon.jsonserializer.jsonparser.helpers.FieldInformationExtractor;
-import simon.jsonserializer.jsonparser.helpers.TypeHelper;
+import simon.jsonserializer.jsonparser.helpers.TypeChecker;
+import simon.jsonserializer.jsonparser.helpers.TypeCreator;
 
 import static java.util.Objects.requireNonNull;
 
 public class JsonDeserializer {
     private final FieldInformationExtractor extractor;
-    private final TypeHelper typeHelper;
+    private final TypeChecker typeChecker;
+    private final TypeCreator typeCreator;
 
-    public JsonDeserializer(FieldInformationExtractor fieldInformationExtractor, TypeHelper typeHelper) {
+    public JsonDeserializer(FieldInformationExtractor fieldInformationExtractor,
+                            TypeChecker typeChecker, TypeCreator typeCreator) {
+
         this.extractor = fieldInformationExtractor;
-        this.typeHelper = typeHelper;
+        this.typeChecker = typeChecker;
+        this.typeCreator = typeCreator;
     }
 
     public <T> T deserialize(@NotNull JSONObject toBeDeJsonified, Class<T> clazz) throws JsonParserException {
@@ -53,13 +58,13 @@ public class JsonDeserializer {
     private void processField(Field field, Object instance, Object dataFromJson)
             throws IllegalAccessException, JsonParserException {
 
-        if (typeHelper.isTypeString(dataFromJson.getClass())) {
+        if (typeChecker.isTypeString(dataFromJson.getClass())) {
             processText(field, instance, (String) dataFromJson);
         }
-        else if (typeHelper.isTypeBoolean(dataFromJson.getClass())) {
+        else if (typeChecker.isTypeBoolean(dataFromJson.getClass())) {
             field.set(instance, dataFromJson);
         }
-        else if (typeHelper.isTypeNumber(dataFromJson.getClass())) {
+        else if (typeChecker.isTypeNumber(dataFromJson.getClass())) {
             processNumber(field, instance, (Number) dataFromJson);
         }
     }
@@ -68,10 +73,10 @@ public class JsonDeserializer {
             throws IllegalAccessException, JsonParserException {
 
         Class<?> fieldClass = field.getType();
-        if (typeHelper.isTypeString(fieldClass)) {
+        if (typeChecker.isTypeString(fieldClass)) {
             field.set(instance, dataFromJson);
         }
-        else if (typeHelper.isTypeCharacter(fieldClass)) {
+        else if (typeChecker.isTypeCharacter(fieldClass)) {
             if (dataFromJson.length() != 1) {
                 throw new JsonParserException("Cannot be casted to Character");
             }
@@ -84,22 +89,22 @@ public class JsonDeserializer {
 
         Class<?> fieldClass = field.getType();
 
-        if (typeHelper.isTypeByte(fieldClass)) {
+        if (typeChecker.isTypeByte(fieldClass)) {
             field.set(instance, dataFromJson.byteValue());
         }
-        else if (typeHelper.isTypeShort(fieldClass)) {
+        else if (typeChecker.isTypeShort(fieldClass)) {
             field.set(instance, dataFromJson.shortValue());
         }
-        else if (typeHelper.isTypeInteger(fieldClass)) {
+        else if (typeChecker.isTypeInteger(fieldClass)) {
             field.set(instance, dataFromJson.intValue());
         }
-        else if (typeHelper.isTypeLong(fieldClass)) {
+        else if (typeChecker.isTypeLong(fieldClass)) {
             field.set(instance, dataFromJson.longValue());
         }
-        else if (typeHelper.isTypeFloat(fieldClass)) {
+        else if (typeChecker.isTypeFloat(fieldClass)) {
             field.set(instance, dataFromJson.floatValue());
         }
-        else if (typeHelper.isTypeDouble(fieldClass)) {
+        else if (typeChecker.isTypeDouble(fieldClass)) {
             field.set(instance, dataFromJson.doubleValue());
         }
     }
