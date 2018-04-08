@@ -55,6 +55,9 @@ public class JsonSerializer {
 
             return jsonObject;
         }
+        catch (JsonParserException e) {
+            throw e;
+        }
         catch (Exception e) {
             throw new JsonParserException("Unable to Serialize object", e);
         }

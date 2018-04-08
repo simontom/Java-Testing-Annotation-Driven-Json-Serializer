@@ -56,6 +56,9 @@ public class JsonDeserializer {
 
             return instance;
         }
+        catch (JsonParserException e) {
+            throw e;
+        }
         catch (Exception e) {
             throw new JsonParserException("Unable to Deserialize object", e);
         }
