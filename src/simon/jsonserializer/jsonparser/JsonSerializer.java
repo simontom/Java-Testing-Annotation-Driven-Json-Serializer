@@ -17,6 +17,10 @@ import simon.jsonserializer.jsonparser.helpers.TypeChecker;
 
 import static java.util.Objects.requireNonNull;
 
+// -------------------------------------------
+// TODO: Maybe using HashMap<Class, ISerializer> would be better than using TypeChecker
+// -------------------------------------------
+
 public class JsonSerializer {
 
     private final FieldInformationExtractor extractor;
